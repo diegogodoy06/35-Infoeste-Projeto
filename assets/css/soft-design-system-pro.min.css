@@ -6,6 +6,8 @@
    * Copyright 2011-2022 Twitter, Inc.
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    */
+
+   
 :root {
    --bs-blue: #63b3ed;
    --bs-indigo: #596cff;
@@ -24776,7 +24778,7 @@ p {
 }
 
 .text-gradient.text-warning {
-   background-image: linear-gradient(310deg, #686868, #000000)
+   background-image: linear-gradient(310deg, #0a3a14, #000000)
 }
 
 .text-gradient.text-danger {
