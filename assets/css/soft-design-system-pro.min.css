@@ -20870,7 +20870,7 @@ fieldset:disabled .btn {
 }
 
 .card.card-background.card-background-mask-primary:after {
-   background-image: linear-gradient(310deg, #7928ca, #ff0080);
+   background-image: linear-gradient(310deg, #0e7700, #0d3900);
    opacity: .85
 }
 
@@ -21787,11 +21787,11 @@ svg.text-primary .color-foreground {
 }
 
 svg.text-primary .color-background {
-   fill: #ff0080
+   fill: #0e6800
 }
 
 svg.text-secondary .color-foreground {
-   fill: #627594
+   fill: #aad28a
 }
 
 svg.text-secondary .color-background {
