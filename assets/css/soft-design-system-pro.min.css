@@ -129,6 +129,11 @@ h1 {
    font-size: calc(1.425rem + 2.1vw)
 }
 
+.pading-logo{
+   padding-left: 50rem;
+   padding-right: 50rem;
+}
+
 @media (min-width:1200px) {
 
    .h1,
