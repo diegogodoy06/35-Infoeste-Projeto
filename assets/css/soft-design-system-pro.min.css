@@ -264,9 +264,7 @@ sup {
    top: -.5em
 }
 
-a {
-   color: var(--bs-link-color)
-}
+
 
 a,
 a:hover {
@@ -2995,7 +2993,7 @@ textarea.form-control-sm {
 
 .form-check-input:checked[type=checkbox],
 .form-check-input:checked[type=radio] {
-   background-image: linear-gradient(310deg, #141727, #3a416f)
+   background-image: linear-gradient(310deg, #142719, #476f3a)
 }
 
 .form-check-input[type=checkbox]:indeterminate {
@@ -24665,7 +24663,6 @@ h4 {
 
 a {
    letter-spacing: -.025rem;
-   color: #344767
 }
 
 .text-sm {
