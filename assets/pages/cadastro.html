@@ -1983,21 +1983,62 @@
 
                                             </select>
                                         </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>Nome</label>
-                                            <div class="input-group mb-4">
-                                                <input class="form-control" placeholder="" aria-label="First Name"
-                                                    type="text">
-                                            </div>
+                                        <hr class="my-4">
+                              
+                                        <div class="my-3">
+                                          <div class="form-check">
+                                            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                                            <label class="form-check-label" for="credit">Credit card</label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                                            <label class="form-check-label" for="debit">Debit card</label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                                            <label class="form-check-label" for="paypal">PayPal</label>
+                                          </div>
                                         </div>
-                                        <div class="col-md-6 ps-2">
-                                            <label>Sobrenome</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" placeholder=""
-                                                    aria-label="Last Name">
+                              
+                                        <div class="row gy-3">
+                                          <div class="col-md-6">
+                                            <label for="cc-name" class="form-label">Name on card</label>
+                                            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                                            <small class="text-muted">Full name as displayed on card</small>
+                                            <div class="invalid-feedback">
+                                              Name on card is required
                                             </div>
+                                          </div>
+                              
+                                          <div class="col-md-6">
+                                            <label for="cc-number" class="form-label">Credit card number</label>
+                                            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                                            <div class="invalid-feedback">
+                                              Credit card number is required
+                                            </div>
+                                          </div>
+                              
+                                          <div class="col-md-3">
+                                            <label for="cc-expiration" class="form-label">Expiration</label>
+                                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                                            <div class="invalid-feedback">
+                                              Expiration date required
+                                            </div>
+                                          </div>
+                              
+                                          <div class="col-md-3">
+                                            <label for="cc-cvv" class="form-label">CVV</label>
+                                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                                            <div class="invalid-feedback">
+                                              Security code required
+                                            </div>
+                                          </div>
                                         </div>
+                                                                
+                                      
+                                    </div>
+                                  </div>
+                                </main>
 </div>
                                 </div>
                                     <div class="col-md-12">
@@ -2185,6 +2226,8 @@
 
     <script src="../assets/js/plugins/chartjs.min.js"></script>
 
+    <script src="https://unpkg.com/imask"></script>
+    <script src="../js/creditcard.js"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
 
@@ -2211,6 +2254,7 @@
         integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg=="
         data-cf-beacon='{"rayId":"809d9c00585ea553","version":"2023.8.0","r":1,"token":"1b7cbb72744b40c580f8633c6b62637e","si":100}'
         crossorigin="anonymous"></script>
+        
 </body>
 
 </html>
