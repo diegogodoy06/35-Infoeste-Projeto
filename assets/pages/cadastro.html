@@ -12,6 +12,14 @@
 
 
     <link rel="canonical" href="https://www.creative-tim.com/product/soft-ui-design-system-pro" />
+    <link rel="stylesheet" href="../css/checkbox.css">
+    <link rel="stylesheet" href="../css/checkboximg.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.min.css">
+    <link rel="stylesheet" href="../css/creditcard.css">
+
+    <script src="../js/creditcard.js"></script>
 
     <meta name="keywords"
         content="bootstrap, bootstrap 5, bootstrap5, ui kit, design system, responsive design, web design ui, ui design system, soft ui kit, soft ui design system">
@@ -1867,100 +1875,141 @@
 
     <section>
         <div class="container py-4">
-          <div class="row">
-            <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column" style="margin-top: 9em !important;">
-              <h3 class="text-center">Inscreva-se</h3> <br>
+            <div class="row">
+                <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column"
+                    style="margin-top: 9em !important;">
+                    <h3 class="text-center">Inscreva-se</h3> <br>
 
-              <form role="form" id="contact-form" method="post" autocomplete="off">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <label>Nome</label>
-                      <div class="input-group mb-4">
-                        <input class="form-control" placeholder="" aria-label="First Name..." type="text" >
-                      </div>
-                    </div>
-                    <div class="col-md-6 ps-2">
-                      <label>Sobrenome</label>
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="" aria-label="Last Name..." >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="mb-4">
-                    <label>Email</label>
-                    <div class="input-group">
-                      <input type="email" class="form-control" placeholder="" >
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                          <label>RA</label>
-                          <div class="input-group mb-4">
-                            <input class="form-control" placeholder="" aria-label="First Name..." type="text" >
-                          </div>
-                        </div>
-                        <div class="col-md-6 ps-2">
-                          <label>Cidade</label>
-                          <div class="input-group">
-                            <input type="text" class="form-control" placeholder="" aria-label="Last Name..." >
-                          </div>
-                        </div>
-                        <div class="mb-4">
-                            <label>Endereço</label>
-                            <div class="input-group">
-                              <input type="email" class="form-control" placeholder="" >
-                            </div>
-
-                            <br>
-                            <h3 class="text-center">Selecione seus cursos</h3> <br>
-
+                    <form role="form" id="contact-form" method="post" autocomplete="off">
+                        <div class="card-body">
                             <div class="row">
-                                <div class="col-md-3">
-                                    <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1a">
-                                        <label class="custom-control-label" for="ck1a">
-                                            <img src="../img/cursos/" alt="#" class="img-fluid">
-                                        </label>
+                                <div class="col-md-6">
+                                    <label>Nome</label>
+                                    <div class="input-group mb-4">
+                                        <input class="form-control" placeholder="" aria-label="First Name" type="text">
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1b">
-                                        <label class="custom-control-label" for="ck1b">
-                                            <img src="../img/cursos/" alt="#" class="img-fluid">
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1c">
-                                        <label class="custom-control-label" for="ck1c">
-                                            <img src="../img/cursos/" alt="#" class="img-fluid">
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1d">
-                                        <label class="custom-control-label" for="ck1d">
-                                            <img src="../img/cursos/" alt="#" class="img-fluid">
-                                        </label>
+                                <div class="col-md-6 ps-2">
+                                    <label>Sobrenome</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="" aria-label="Last Name">
                                     </div>
                                 </div>
                             </div>
+                            <div class="mb-4">
+                                <label>Email</label>
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>RA</label>
+                                        <div class="input-group mb-4">
+                                            <input class="form-control" placeholder="" aria-label="First Name..."
+                                                type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 ps-2">
+                                        <label>Cidade</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder=""
+                                                aria-label="Last Name...">
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label>Endereço</label>
+                                        <div class="input-group">
+                                            <input type="email" class="form-control" placeholder="">
+                                        </div>
 
-                      </div>
-                      
-                    <div class="col-md-12">
-                      <button type="submit" class="btn bg-gradient-dark w-100">Enviar</button>
-                    </div>
-                  </div>
+                                        <br>
+                                        <h3 class="text-center">Selecione seus cursos</h3> <br>
+
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="custom-control custom-checkbox image-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ck1a">
+                                                    <label class="custom-control-label" for="ck1a">
+                                                        <img src="../img/content/SobreEvento.jpg" alt="#"
+                                                            class="img-fluid">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="custom-control custom-checkbox image-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ck1b">
+                                                    <label class="custom-control-label" for="ck1b">
+                                                        <img src="../img/content/SobreEvento.jpg" alt="#"
+                                                            class="img-fluid">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="custom-control custom-checkbox image-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ck1c">
+                                                    <label class="custom-control-label" for="ck1c">
+                                                        <img src="../img/content/SobreEvento.jpg" alt="#"
+                                                            class="img-fluid">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="custom-control custom-checkbox image-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="ck1d">
+                                                    <label class="custom-control-label" for="ck1d">
+                                                        <img src="../img/content/SobreEvento.jpg" alt="#"
+                                                            class="img-fluid">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+                                    </div>
+
+                                    <h3 class="text-center">Método de pagamento</h3> <br>
+                                    <br><br>
+                                    <div class="mb-4">
+                                        <label>Categoria do Participante</label>
+                                        <div class="input-group">
+                                            <select name="categoria" class="form-control" id="categoria">
+                                                <option value="valor1">Alunos ETEC´s</option>
+                                                <option value="valor2">Alunos da Graduação EAD - FIPP</option>
+                                                <option value="valor3">Alunos da Graduação Presencial - FIPP</option>
+                                                <option value="valor4">BSU - Business School Unoeste</option>
+                                                <option value="valor4">Demais Participantes</option>
+                                                <option value="valor4">Egressos da FIPP</option>
+                                                <option value="valor4">Professores e Funcionários da FIPP</option>
+
+                                            </select>
+                                        </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Nome</label>
+                                            <div class="input-group mb-4">
+                                                <input class="form-control" placeholder="" aria-label="First Name"
+                                                    type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 ps-2">
+                                            <label>Sobrenome</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder=""
+                                                    aria-label="Last Name">
+                                            </div>
+                                        </div>
+</div>
+                                </div>
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn bg-gradient-dark w-100">Enviar</button>
+                                    </div>
+                                </div>
+                            </div>
+                    </form>
                 </div>
-              </form>
             </div>
-          </div>
         </div>
-      </section>
+    </section>
     <footer class="footer pt-5 mt-5">
         <hr class="horizontal dark mb-5">
         <div class="container">
@@ -2110,7 +2159,8 @@
                                 src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> Soft UI Design System by <a href="https://www.creative-tim.com" target="_blank">Creative
+                            </script> Soft UI Design System by <a href="https://www.creative-tim.com"
+                                target="_blank">Creative
                                 Tim</a>.
                         </p>
                     </div>
