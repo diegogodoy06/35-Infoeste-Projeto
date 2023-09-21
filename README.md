@@ -1,5 +1,5 @@
 # Proposta de Layout para a 35ª Infoeste (2023)
-
+![Home](https://raw.githubusercontent.com/diegogodoy06/35-Infoeste-Projeto/main/assets/homesite.jpg)
 ## Objetivo
 
 Nossa missão é criar um layout inovador e moderno para o website da 35ª Infoeste, que acontecerá em Outubro de 2023. Esta proposta inclui um novo logotipo e uma experiência de navegação aprimorada para os usuários, mantendo a identidade visual da Unoeste.
