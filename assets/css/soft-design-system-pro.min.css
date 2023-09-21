@@ -2717,7 +2717,7 @@ progress {
    color: #495057;
    background-color: #fff;
    background-clip: padding-box;
-   border: 1px solid #d2d6da;
+   border: 1px solid #d2dad3;
    appearance: none;
    transition: box-shadow .15s ease, border-color .15s ease
 }
@@ -2739,9 +2739,9 @@ progress {
 .form-control:focus {
    color: #495057;
    background-color: #fff;
-   border-color: #e293d3;
+   border-color: #93e2a5;
    outline: 0;
-   box-shadow: 0 0 0 2px #e9aede
+   box-shadow: 0 0 0 2px #aee9b7
 }
 
 .form-control::-webkit-date-and-time-value {
@@ -21518,10 +21518,9 @@ fieldset:disabled .btn {
 }
 
 .form-switch .form-check-input:checked {
-   border-color: rgba(58, 65, 111, .95);
-   background-color: rgba(58, 65, 111, .95)
+   border-color: rgb(6 9 1);
+   background-color: rgb(15 103 0);
 }
-
 .form-select {
    transition: box-shadow .15s ease, border-color .15s ease
 }
@@ -21531,16 +21530,16 @@ label {
    font-size: .75rem;
    font-weight: 700;
    margin-bottom: .5rem;
-   color: #344767;
+   color: #183318;
    margin-left: .25rem
 }
 
 .form-control.is-invalid:focus {
-   box-shadow: 0 0 0 2px rgba(253, 92, 112, .6)
+   box-shadow: 0 0 0 2px rgb(36 88 25 / 5%) 
 }
 
 .form-control.is-valid:focus {
-   box-shadow: 0 0 0 2px rgba(102, 212, 50, .65)
+   box-shadow: 0 0 0 2px rgb(36 88 25 / 5%) 
 }
 
 .footer .nav-link {
@@ -21569,7 +21568,7 @@ label {
 }
 
 .bg-gradient-info {
-   background-image: linear-gradient(310deg, #2152ff, #21d4fd)
+   background-image: linear-gradient(310deg,#0a9b09,#013903)
 }
 
 .bg-gradient-warning {
@@ -24770,7 +24769,7 @@ p {
 }
 
 .text-gradient.text-info {
-   background-image: linear-gradient(310deg, #2152ff, #21d4fd)
+   background-image: linear-gradient(310deg,#0a9b09,#013903)
 }
 
 .text-gradient.text-success {
