@@ -241,9 +241,40 @@
                                         <h3 class="text-center">Selecione palestras desejadas</h3> <br>
 
 
+
+                                        <select style="height: 170px; overflow: hidden;" class="form-select" id="multiple-select-field"
+                                            data-placeholder="Choose anything" multiple>
+                                            <option class="text-center font-weight-bolder" style="font-size: 18px;">
+                                                Bradesco</option>
+                                            <option class="text-center font-weight-bolder" style="font-size: 18px;">
+                                                Mercado Livre</option>
+                                            <option class="text-center font-weight-bolder" style="font-size: 18px;">
+                                                Xiaomi - Brasil
+                                            </option>
+                                            <option class="text-center font-weight-bolder" style="font-size: 18px;">
+                                                Dell</option>
+                                            <option class="text-center font-weight-bolder" style="font-size: 18px;">
+                                                Microsoft </option>
+                                            <option class="text-center font-weight-bolder" style="font-size: 18px;">Vale
+                                            </option>
+
+                                        </select>
+
                                         <br><br><br>
                                         <h3 class="text-center">Selecione os eventos</h3> <br>
 
+                                        <select style="height: 90px; overflow: hidden;" class="form-select" id="multiple-select-field"
+                                            data-placeholder="Choose anything" multiple>
+                                            <option class="text-center font-weight-bolder" style="font-size: 18px;">
+                                                17° Maratona de Programação</option>
+                                            <option class="text-center font-weight-bolder" style="font-size: 18px;">
+                                                16° Festa Linux</option>
+                                            <option class="text-center font-weight-bolder" style="font-size: 18px;">
+                                                9° FIPPTEC
+                                            </option>
+
+
+                                        </select>
 
                                         <br><br><br>
                                         <h3 class="text-center">Selecione os mini cursos</h3> <br>
@@ -435,7 +466,14 @@
         </div>
     </footer>
 
-
+    <script>
+        $('#multiple-select-field').select2({
+            theme: "bootstrap-5",
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).data('placeholder'),
+            closeOnSelect: false,
+        });
+    </script>
     <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>

@@ -2885,9 +2885,9 @@ textarea.form-control-sm {
 }
 
 .form-select:focus {
-   border-color: #e293d3;
+   border-color: #9de293;
    outline: 0;
-   box-shadow: 0 0 0 2px #e9aede
+   box-shadow: 0 0 0 2px #aee9bf
 }
 
 .form-select[multiple],
