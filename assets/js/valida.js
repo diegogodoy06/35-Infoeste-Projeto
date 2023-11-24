@@ -140,6 +140,10 @@ function clearValidationMessages() {
     });
 }
 
+function apenasNum(inputElement) {
+    inputElement.value = inputElement.value.replace(/\D/g, '');
+}
+
 function restrictToNumbers(inputElement) {
 
     // Remover caracteres não numéricos
@@ -181,13 +185,22 @@ function validaEmailInput() {
 
 function validaNumeric(element) {
     element.value = element.value.replace(/\D/g, '');
+
 }
 
 // Função para aplicar a máscara de telefone
 function mascaraTelefone(element) {
     Inputmask('(99) 99999-9999').mask(element);
+
 }
 
+function mascaraValicc(element) {
+    Inputmask('99 9999').mask(element);
+}
+
+function mascaraCC(element) {
+    Inputmask('9999 9999 9999 9999').mask(element);
+}
 
 function validarNumero() {
     var numeroInput = document.getElementById('numero');
@@ -224,7 +237,7 @@ function atualizarValor() {
     document.getElementById('valor-total').textContent = valorSelecionado;
 }
 
-function validaCC() {
+/*function validaCC() {
     var cartoes = {
         Visa: /^4[0-9]{12}(?:[0-9]{3})/,
         Mastercard: /^5[1-5][0-9]{14}/,
@@ -251,5 +264,64 @@ function validaCC() {
             }
         }
         return false;
+    }
+}*/
+
+
+function validaCC() {
+    var num_cc = $('#cc-number').text().replace(/\D/g, '');
+
+    if (num_cc.length === 0) {
+        limparImagemBandeira();
+        return;
+    }
+
+    var cartoes = {
+        Visa: /^4[0-9]{12}(?:[0-9]{3})/,
+        Mastercard: /^5[1-5][0-9]{14}/,
+        Amex: /^3[47][0-9]{13}/,
+        DinersClub: /^3(?:0[0-5]|[68][0-9])[0-9]{11}/,
+        Discover: /^6(?:011|5[0-9]{2})[0-9]{12}/,
+    };
+
+    var ccBrandIcon = document.getElementById('cc-brand');
+    var validationMessage = document.getElementById('cc-validation-message');
+
+    var brand = testarCC(num_cc, cartoes);
+
+    if (brand) {
+        ccBrandIcon.style.backgroundImage = 'url("' + obterURLDaBandeira(brand) + '")';
+        validationMessage.textContent = '';  // Limpar a mensagem de validação se for válido
+    } else {
+        ccBrandIcon.style.backgroundImage = 'none';  // Limpar a imagem se o número do cartão for inválido
+        validationMessage.textContent = 'Número do cartão inválido';
+        
+    }
+
+    function testarCC(nr, cartoes) {
+        for (var cartao in cartoes) {
+            if (nr.match(cartoes[cartao])) {
+                return cartao;
+            }
+        }
+        return false;
+    }
+
+    function obterURLDaBandeira(brand) {
+        // Mapeamento de bandeiras para URLs de imagens online
+        var urlBandeiras = {
+            Visa: 'https://cdn.4devs.com.br/imagens/cc/logo_visa.jpg',
+            Mastercard: 'https://cdn.4devs.com.br/imagens/cc/logo_master.jpg',
+            Amex: 'https://cdn.4devs.com.br/imagens/cc/logo_amex.jpg',
+            DinersClub: 'https://cdn.4devs.com.br/imagens/cc/logo_diners.jpg',
+            Discover: 'https://cdn.4devs.com.br/imagens/cc/logo_discover.jpg',
+        };
+
+        return urlBandeiras[brand] || '';
+    }
+
+    function limparImagemBandeira() {
+        ccBrandIcon.style.backgroundImage = 'none';  // Limpar a imagem se o número do cartão não estiver presente
+        validationMessage.textContent = '';  // Limpar a mensagem de validação
     }
 }

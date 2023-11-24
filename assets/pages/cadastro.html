@@ -58,17 +58,18 @@
 
     <script src="../js/valida.js"></script>
     <link rel="stylesheet" href="../../assets/css/addjs.css">
+
 </head>
 
 
 <body class="contact-us">
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-    
+
             document.getElementById('categoria').addEventListener('change', atualizarValor);
         });
-        
-        
+
+
     </script>
     <div class="container position-sticky z-index-sticky top-0">
         <div class="row">
@@ -369,7 +370,7 @@
 
                             <br><br><br>
                             <h3 class="text-center">Selecione palestras desejadas</h3> <br>
-                            
+
                             <!-- Primeiro select -->
                             <select style="height: auto" class="form-select" id="multiple-select-field"
                                 data-placeholder="Choose anything" multiple>
@@ -409,7 +410,8 @@
 
                                 <div class="col-md-3">
                                     <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1a" onchange="limitarSelecao('conjunto3', this)">
+                                        <input type="checkbox" class="custom-control-input" id="ck1a"
+                                            onchange="limitarSelecao('conjunto3', this)">
                                         <label class="custom-control-label" for="ck1a">
                                             <img src="../img/cursos/web.jpg" alt="#" class="img-fluid">
                                         </label>
@@ -418,7 +420,8 @@
 
                                 <div class="col-md-3">
                                     <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1b" onchange="limitarSelecao('conjunto3', this)">
+                                        <input type="checkbox" class="custom-control-input" id="ck1b"
+                                            onchange="limitarSelecao('conjunto3', this)">
                                         <label class="custom-control-label" for="ck1b">
                                             <img src="../img/cursos/praticas.jpg" alt="#" class="img-fluid">
                                         </label>
@@ -426,7 +429,8 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1c" onchange="limitarSelecao('conjunto3', this)">
+                                        <input type="checkbox" class="custom-control-input" id="ck1c"
+                                            onchange="limitarSelecao('conjunto3', this)">
                                         <label class="custom-control-label" for="ck1c">
                                             <img src="../img/cursos/movel.jpg" alt="#" class="img-fluid">
                                         </label>
@@ -434,7 +438,8 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1d" onchange="limitarSelecao('conjunto3', this)">
+                                        <input type="checkbox" class="custom-control-input" id="ck1d"
+                                            onchange="limitarSelecao('conjunto3', this)">
                                         <label class="custom-control-label" for="ck1d">
                                             <img src="../img/cursos/clean.jpg" alt="#" class="img-fluid">
                                         </label>
@@ -445,7 +450,7 @@
 
 
                             <h3 class="text-center">Método de pagamento</h3> <br>
-                            
+
                             <div class="mb-4">
                                 <label>Categoria do Participante</label>
                                 <div class="input-group">
@@ -479,52 +484,59 @@
                                     <div class="col-md-6">
                                         <label for="cc-name" class="form-label">Nome do cartão</label>
                                         <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                                        <small class="text-muted" style="font-size: 12px;">Nome presente no cartão</small>
+                                        <small class="text-muted" style="font-size: 12px;">Nome presente no
+                                            cartão</small>
                                     </div>
 
                                     <div class="col-md-6">
                                         <label for="cc-number" class="form-label">Número do cartão</label>
-                                        <input type="text" class="form-control" id="cc-number" placeholder="" oninput="validaCC();">
-                                        <small class="text-muted" id="cc-validation-message" style="font-size: 12px;"></small>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <label for="cc-expiration" class="form-label">Validade</label>
-                                        <input type="text" class="form-control" id="cc-expiration" placeholder=""
-                                            required>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <label for="cc-cvv" class="form-label">CVV</label>
-                                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                                        <div class="invalid-feedback">
-                                            Security code required
+                                        <div class="cc-input-container ">
+                                            <div class="cc-number-input form-control" id="cc-number" contenteditable="true"
+                                                oninput="validaCC(), mascaraCC(), restrictToNumbers(this);"></div>
+                                            <div class="cc-brand-icon" id="cc-brand"></div>
                                         </div>
+                                        <small class="text-muted" id="cc-validation-message"
+                                            style="font-size: 12px;"></small>
                                     </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="cc-expiration" class="form-label">Validade</label>
+                                    <input type="text" class="form-control" id="cc-expiration" placeholder="" oninput="mascaraValicc();">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="cc-cvv" class="form-label">CVV</label>
+                                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                                    <div class="invalid-feedback">
+                                        Security code required
+                                    </div>
+                                </div>
 
 
-                                    <div class="col-md-6" style="display: flex;
+                                <div class="col-md-6" style="display: flex;
                                                                         align-items: center;
                                                                         justify-content: space-around;
                                                                         flex-direction: column;
                                                                         align-content: space-between;">
-                                        <label for="valor" class="form-label">Valor total</label>
-                                        <div>
-                                            <label for="valor" class="form-label" style="font-size: 2em;">R$:
-                                            </label>
-                                            <label for="valor" id="valor-total" class="form-label" style="font-size: 2em;">50</label>
-                                        </div>
+                                    <label for="valor" class="form-label">Valor total</label>
+                                    <div>
+                                        <label for="valor" class="form-label" style="font-size: 2em;">R$:
+                                        </label>
+                                        <label for="valor" id="valor-total" class="form-label"
+                                            style="font-size: 2em;">50</label>
                                     </div>
                                 </div>
                             </div>
-                            <br><br><br>
-                            <div class="col-md-12" style="align-items: center; align-content: center;">
-                                <button style="align-items: center; align-content: center;" type="submit"
-                                    class="btn bg-gradient-dark w-100">Enviar</button>
-                            </div>
-                            </main>
                 </div>
+                <br><br><br>
+                <div class="col-md-12" style="align-items: center; align-content: center;">
+                    <button style="align-items: center; align-content: center;" type="submit"
+                        class="btn bg-gradient-dark w-100">Enviar</button>
+                </div>
+                </main>
             </div>
+        </div>
         </div>
         </div>
         </div>

@@ -34073,3 +34073,28 @@ svg.leaflet-image-layer.leaflet-interactive path {
    transition-delay: 0s;
    transform: scale(1)
 }
+.cc-input-container {
+   position: relative;
+   width: 100%;
+}
+
+.cc-number-input {
+   width: calc(100% - 40px); /* Ajuste conforme necessário */
+   box-sizing: border-box;
+   padding: 8px; /* Ajuste conforme necessário */
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   display: inline-block; /* Permitir que a div se comporte como um bloco em linha */
+}
+
+
+.cc-brand-icon {
+   position: absolute;
+   top: 50%;
+   right: 62px;
+   transform: translateY(-50%); 
+   max-height: 100%; 
+   display: inline-block;
+   width: 30px;
+   height: 10px;
+}
