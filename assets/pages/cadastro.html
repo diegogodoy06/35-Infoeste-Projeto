@@ -196,7 +196,7 @@
         <div class="container py-4">
             <div class="row">
                 <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column"
-                    style="margin-top: 9em !important;">
+                    style="margin-top: 9em !important; background-color: lawngreen;">
                     <h3 class="text-center">Inscreva-se</h3> <br>
 
                     <form role="form" id="contact-form" method="post" autocomplete="off" onsubmit="return validaform()">
@@ -306,21 +306,22 @@
 
                         </div>
                         <div class="row">
-                            <div class="col-md-10 p-sm-3">
+                            <div class="col-md-9 p-sm-3">
                                 <label>Rua</label>
                                 <div class="input-group">
                                     <input id="endereco" type="text" class="form-control" placeholder=""
                                         aria-label="Address">
                                 </div>
                             </div>
-                            <div class="col-md-2 p-sm-3">
+                            <div class="col-md-3 p-sm-3">
                                 <label>Número</label>
                                 <div class="input-group">
                                     <input id="numero" type="text" class="form-control" placeholder=""
-                                        aria-label="Número">
+                                        aria-label="Número" maxlength="5" oninput="validarNumero()">
                                 </div>
                             </div>
                         </div>
+
 
 
 
@@ -398,17 +399,19 @@
                             <h3 class="text-center">Selecione os mini cursos</h3> <br>
 
                             <div class="row">
+
                                 <div class="col-md-3">
                                     <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1a">
+                                        <input type="checkbox" class="custom-control-input" id="ck1a" onchange="limitarSelecao('conjunto1', this)">
                                         <label class="custom-control-label" for="ck1a">
                                             <img src="../img/cursos/web.jpg" alt="#" class="img-fluid">
                                         </label>
                                     </div>
                                 </div>
+
                                 <div class="col-md-3">
                                     <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1b">
+                                        <input type="checkbox" class="custom-control-input" id="ck1b" onchange="limitarSelecao('conjunto1', this)">
                                         <label class="custom-control-label" for="ck1b">
                                             <img src="../img/cursos/praticas.jpg" alt="#" class="img-fluid">
                                         </label>
@@ -416,7 +419,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1c">
+                                        <input type="checkbox" class="custom-control-input" id="ck1c" onchange="limitarSelecao('conjunto1', this)">
                                         <label class="custom-control-label" for="ck1c">
                                             <img src="../img/cursos/movel.jpg" alt="#" class="img-fluid">
                                         </label>
@@ -424,7 +427,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1d">
+                                        <input type="checkbox" class="custom-control-input" id="ck1d" onchange="limitarSelecao('conjunto1', this)">
                                         <label class="custom-control-label" for="ck1d">
                                             <img src="../img/cursos/clean.jpg" alt="#" class="img-fluid">
                                         </label>
@@ -432,98 +435,102 @@
                                 </div>
                             </div>
                             <br><br>
-                </div>
-
-                <h3 class="text-center">Método de pagamento</h3> <br>
-                <br><br>
-                <div class="mb-4">
-                    <label>Categoria do Participante</label>
-                    <div class="input-group">
-                        <select name="categoria" class="form-control" id="categoria">
-                            <option value="valor1">Alunos ETEC´s</option>
-                            <option value="valor2">Alunos da Graduação EAD - FIPP</option>
-                            <option value="valor3">Alunos da Graduação Presencial - FIPP</option>
-                            <option value="valor4">BSU - Business School Unoeste</option>
-                            <option value="valor4">Demais Participantes</option>
-                            <option value="valor4">Egressos da FIPP</option>
-                            <option value="valor4">Professores e Funcionários da FIPP</option>
-
-                        </select>
-                    </div>
-                    <hr class="my-4">
-
-                    <div class="my-3">
-                        <div class="form-check">
-                            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked
-                                required>
-                            <label class="form-check-label" for="credit">Cartão de débito</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-                            <label class="form-check-label" for="debit">Cartão de crédito</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-                            <label class="form-check-label" for="paypal">PayPal</label>
-                        </div>
-                    </div>
-
-                    <div class="row gy-3">
-                        <div class="col-md-6">
-                            <label for="cc-name" class="form-label">Nome do cartão</label>
-                            <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                            <small class="text-muted">Nome presente no cartão</small>
-                            <div class="invalid-feedback">
-                                Nome required
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="cc-number" class="form-label">Número do cartão</label>
-                            <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                            <div class="invalid-feedback">
-                                Número required
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <label for="cc-expiration" class="form-label">Validade</label>
-                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                            <div class="invalid-feedback">
-                                Validade required
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <label for="cc-cvv" class="form-label">CVV</label>
-                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                            <div class="invalid-feedback">
-                                Security code required
-                            </div>
-                        </div>
 
 
-                        <div class="col-md-6" style="display: flex;
+                            <h3 class="text-center">Método de pagamento</h3> <br>
+                            <br><br>
+                            <div class="mb-4">
+                                <label>Categoria do Participante</label>
+                                <div class="input-group">
+                                    <select name="categoria" class="form-control" id="categoria">
+                                        <option value="valor1">Alunos ETEC´s</option>
+                                        <option value="valor2">Alunos da Graduação EAD - FIPP</option>
+                                        <option value="valor3">Alunos da Graduação Presencial - FIPP</option>
+                                        <option value="valor4">BSU - Business School Unoeste</option>
+                                        <option value="valor4">Demais Participantes</option>
+                                        <option value="valor4">Egressos da FIPP</option>
+                                        <option value="valor4">Professores e Funcionários da FIPP</option>
+
+                                    </select>
+                                </div>
+                                <hr class="my-4">
+
+                                <div class="my-3">
+                                    <div class="form-check">
+                                        <input id="credit" name="paymentMethod" type="radio" class="form-check-input"
+                                            checked required>
+                                        <label class="form-check-label" for="credit">Cartão de débito</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input id="debit" name="paymentMethod" type="radio" class="form-check-input"
+                                            required>
+                                        <label class="form-check-label" for="debit">Cartão de crédito</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input id="paypal" name="paymentMethod" type="radio" class="form-check-input"
+                                            required>
+                                        <label class="form-check-label" for="paypal">PayPal</label>
+                                    </div>
+                                </div>
+
+                                <div class="row gy-3">
+                                    <div class="col-md-6">
+                                        <label for="cc-name" class="form-label">Nome do cartão</label>
+                                        <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                                        <small class="text-muted">Nome presente no cartão</small>
+                                        <div class="invalid-feedback">
+                                            Nome required
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="cc-number" class="form-label">Número do cartão</label>
+                                        <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                                        <div class="invalid-feedback">
+                                            Número required
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label for="cc-expiration" class="form-label">Validade</label>
+                                        <input type="text" class="form-control" id="cc-expiration" placeholder=""
+                                            required>
+                                        <div class="invalid-feedback">
+                                            Validade required
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label for="cc-cvv" class="form-label">CVV</label>
+                                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                                        <div class="invalid-feedback">
+                                            Security code required
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-6" style="display: flex;
                                                                         align-items: center;
                                                                         justify-content: space-around;
                                                                         flex-direction: column;
                                                                         align-content: space-between;">
-                            <label for="valor" class="form-label">Valor total</label>
-                            <div>
-                                <label for="valor" class="form-label" style="font-size: 2em;">R$:
-                                </label>
-                                <label for="valor" class="form-label" style="font-size: 2em;">55</label>
+                                        <label for="valor" class="form-label">Valor total</label>
+                                        <div>
+                                            <label for="valor" class="form-label" style="font-size: 2em;">R$:
+                                            </label>
+                                            <label for="valor" class="form-label" style="font-size: 2em;">55</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                            <br><br><br>
+                            <div class="col-md-12" style="align-items: center; align-content: center;">
+                                <button style="align-items: center; align-content: center;" type="submit"
+                                    class="btn bg-gradient-dark w-100">Enviar</button>
+                            </div>
+                            </main>
                 </div>
             </div>
-            </main>
-        </div>
-        </div>
-        <div class="col-md-12" style="max-width: 50%; align-items: center; align-content: center;">
-            <button style="align-items: center; align-content: center;" type="submit"
-                class="btn bg-gradient-dark w-100">Enviar</button>
         </div>
         </div>
         </div>

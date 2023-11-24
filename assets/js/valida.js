@@ -184,3 +184,34 @@ function validaNumeric(element) {
 function mascaraTelefone(element) {
     Inputmask('(99) 99999-9999').mask(element);
 }
+
+
+function validarNumero() {
+    var numeroInput = document.getElementById('numero');
+    var numero = parseInt(numeroInput.value);
+
+    if (isNaN(numero) || numero < 0 || numero > 99999) {
+        // Se o valor não for um número válido ou ultrapassar 5 dígitos, redefine para o valor máximo permitido
+        numeroInput.value = '';
+    }
+}
+
+
+var contadores = {}; // Objeto para armazenar contadores de cada conjunto
+
+function limitarSelecao(conjunto, checkbox) {
+    if (!contadores[conjunto]) {
+        contadores[conjunto] = 0;
+    }
+
+    if (checkbox.checked) {
+        if (contadores[conjunto] >= 2) {
+            displayValidationMessage("Você só pode selecionar até 2 opções.");
+            checkbox.checked = false;
+        } else {
+            contadores[conjunto]++;
+        }
+    } else {
+        contadores[conjunto]--;
+    }
+}
