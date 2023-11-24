@@ -1,33 +1,52 @@
 function validaCPF(cpf) {
-    cpf = cpf.replace(/[^\d]/g, ''); // Remove caracteres não numéricos
 
-    // Verifica se o CPF tem 11 dígitos
-    if (cpf.length !== 11) {
-        return false;
-    }
+    var Soma = 0
+    var Resto
 
-    // Verifica se todos os dígitos são iguais, o que torna o CPF inválido
-    if (/^(\d)\1+$/.test(cpf)) {
-        return false;
-    }
+    var strCPF = String(cpf).replace(/[^\d]/g, '')
 
-    // Calcula os dígitos verificadores
-    var v1 = 0;
-    for (var i = 0; i < 9; i++) {
-        v1 += parseInt(cpf.charAt(i)) * (10 - i);
-    }
-    v1 = (v1 % 11) % 10;
+    if (strCPF.length !== 11)
+        return false
 
-    var v2 = 0;
-    for (var j = 0; j < 10; j++) {
-        v2 += parseInt(cpf.charAt(j)) * (11 - j);
-    }
-    v2 = (v2 % 11) % 10;
+    if ([
+        '00000000000',
+        '11111111111',
+        '22222222222',
+        '33333333333',
+        '44444444444',
+        '55555555555',
+        '66666666666',
+        '77777777777',
+        '88888888888',
+        '99999999999',
+    ].indexOf(strCPF) !== -1)
+        return false
 
-    // Verifica se os dígitos verificadores calculados coincidem com os dígitos reais
-    if ((v1 !== parseInt(cpf.charAt(9))) || (v2 !== parseInt(cpf.charAt(10)))) {
-        return false;
-    }
+    for (i = 1; i <= 9; i++)
+        Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
 
-    return true;
+    Resto = (Soma * 10) % 11
+
+    if ((Resto == 10) || (Resto == 11))
+        Resto = 0
+
+    if (Resto != parseInt(strCPF.substring(9, 10)))
+        return false
+
+    Soma = 0
+
+    for (i = 1; i <= 10; i++)
+        Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i)
+
+    Resto = (Soma * 10) % 11
+
+    if ((Resto == 10) || (Resto == 11))
+        Resto = 0
+
+    if (Resto != parseInt(strCPF.substring(10, 11)))
+        return false
+
+    return true
 }
+// Teste
+// Deve retornar true para um CPF válido

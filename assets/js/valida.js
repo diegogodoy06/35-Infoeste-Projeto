@@ -105,7 +105,7 @@ function mascaraCPF() {
 
 function validaCPFInput() {
     var cpf = $('#cpf').val().replace(/\D/g, ''); // Remover caracteres não numéricos
-
+    console.log(cpf);
     // Verificar se todos os dígitos do CPF foram inseridos
     if (cpf.length === 11) {
         if (!validaCPF(cpf)) {
