@@ -175,3 +175,12 @@ function validaEmailInput() {
         clearValidationMessages(); // Limpar mensagens de validação se o e-mail for válido
     }
 }
+
+function validaNumeric(element) {
+    element.value = element.value.replace(/\D/g, '');
+}
+
+// Função para aplicar a máscara de telefone
+function mascaraTelefone(element) {
+    Inputmask('(99) 99999-9999').mask(element);
+}

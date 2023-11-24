@@ -44,6 +44,7 @@
     <meta property="og:description"
         content="Most complex and innovative Design System Made by Creative Tim. Check our latest Premium Bootstrap 5 UI Kit." />
     <meta property="og:site_name" content="Creative Tim" />
+    <script src="caminho/para/inputmask.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <script src="../js/valida-cpf.js"></script>
@@ -219,73 +220,116 @@
                             <div class="mb-4">
                                 <label>Email</label>
                                 <div class="input-group">
-                                    <input id="email" type="email" class="form-control" placeholder="" aria-label="Email" oninput="debouncedValidaEmailInput();">
+                                    <input id="email" type="email" class="form-control" placeholder=""
+                                        aria-label="Email" oninput="debouncedValidaEmailInput();">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>RA</label>
                                     <div class="input-group mb-4">
-                                        <input id="ra" class="form-control" placeholder="" aria-label="RA" type="text" oninput="restrictToNumbers(this);">
+                                        <input id="ra" class="form-control" placeholder="" aria-label="RA" type="text"
+                                            oninput="restrictToNumbers(this);">
                                     </div>
                                 </div>
                                 <div class="col-md-6 ps-2">
                                     <label>CPF</label>
                                     <div class="input-group">
-                                        <input id="cpf" type="text" class="form-control" placeholder="" aria-label="CPF" oninput="mascaraCPF(); validaCPFInput();">
+                                        <input id="cpf" type="text" class="form-control" placeholder="" aria-label="CPF"
+                                            oninput="mascaraCPF(); validaCPFInput();">
                                     </div>
                                 </div>
-                                
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>CEP</label>
-                                    <div class="input-group mb-4">
-                                        <input id="cep" class="form-control" placeholder="" aria-label="CEP" type="text"
-                                            oninput="consultaCEP()">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 ps-2">
-                                    <label>Cidade</label>
-                                    <div class="input-group">
-                                        <input id="cidade" type="text" class="form-control" placeholder=""
-                                            aria-label="Cidade" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Bairro</label>
-                                    <div class="input-group mb-4">
-                                        <input id="bairro" type="text" class="form-control" placeholder=""
-                                            aria-label="Bairro" readonly>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 ps-2">
-                                    <label>UF</label>
-                                    <div class="input-group">
-                                        <input id="uf" type="text" class="form-control" placeholder=""
-                                            aria-label="UF" readonly>
-                                    </div>
-                                </div>
-                                
+
                             </div>
 
-                            <div class="mb-4">
-                                <label>Endereço</label>
+                            <div class="row">
+
+                                <div class="col-md-4 p-sm-3">
+                                    <label>Telefone 1</label>
+                                    <div class="input-group">
+                                        <input id="telefone1" type="text" class="form-control" placeholder=""
+                                            aria-label="telefone1"
+                                            oninput="validaNumeric(this); mascaraTelefone(this);">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 p-sm-3">
+                                    <label>Telefone 2</label>
+                                    <div class="input-group">
+                                        <input id="telefone2" type="text" class="form-control" placeholder=""
+                                            aria-label="telefone2"
+                                            oninput="validaNumeric(this); mascaraTelefone(this);">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 p-sm-3">
+                                    <label>Telefone Residencial</label>
+                                    <div class="input-group mb-4">
+                                        <input id="telefoneres" class="form-control" placeholder=""
+                                            aria-label="Telefoneres" type="text"
+                                            oninput="validaNumeric(this); mascaraTelefone(this);">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>CEP</label>
+                                <div class="input-group mb-4">
+                                    <input id="cep" class="form-control" placeholder="" aria-label="CEP" type="text"
+                                        oninput="consultaCEP()">
+                                </div>
+                            </div>
+                            <div class="col-md-6 ps-2">
+                                <label>Cidade</label>
+                                <div class="input-group">
+                                    <input id="cidade" type="text" class="form-control" placeholder=""
+                                        aria-label="Cidade" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Bairro</label>
+                                <div class="input-group mb-4">
+                                    <input id="bairro" type="text" class="form-control" placeholder=""
+                                        aria-label="Bairro" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ps-2">
+                                <label>UF</label>
+                                <div class="input-group">
+                                    <input id="uf" type="text" class="form-control" placeholder="" aria-label="UF"
+                                        readonly>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10 p-sm-3">
+                                <label>Rua</label>
                                 <div class="input-group">
                                     <input id="endereco" type="text" class="form-control" placeholder=""
                                         aria-label="Address">
                                 </div>
                             </div>
+                            <div class="col-md-2 p-sm-3">
+                                <label>Número</label>
+                                <div class="input-group">
+                                    <input id="numero" type="text" class="form-control" placeholder=""
+                                        aria-label="Número">
+                                </div>
+                            </div>
+                        </div>
 
 
-                            <br><br><br>
-                            <h3 class="text-center">Selecione palestras desejadas</h3> <br>
 
-                            <select style="height: 170px; overflow: hidden;" class="form-select"
-                                id="multiple-select-field" data-placeholder="Choose anything" multiple></select>
+                        <br><br><br>
+                        <h3 class="text-center">Selecione palestras desejadas</h3> <br>
+
+                        <select style="overflow: hidden;" class="form-select" id="multiple-select-field"
+                            data-placeholder="Choose anything" multiple>
+
 
                             <script>
                                 // Simulando dados reais usando uma variável estática
@@ -316,20 +360,39 @@
 
 
                             <br><br><br>
-                            <h3 class="text-center">Selecione os eventos</h3> <br>
+                            <h3 class="text-center">Selecione palestras desejadas</h3> <br>
 
-                            <select style="height: 90px; overflow: hidden;" class="form-select"
-                                id="multiple-select-field" data-placeholder="Choose anything" multiple>
-                                <option class="text-center font-weight-bolder" style="font-size: 18px;">
-                                    17° Maratona de Programação</option>
-                                <option class="text-center font-weight-bolder" style="font-size: 18px;">
-                                    16° Festa Linux</option>
-                                <option class="text-center font-weight-bolder" style="font-size: 18px;">
-                                    9° FIPPTEC
-                                </option>
-
-
+                            <!-- Primeiro select -->
+                            <select style="height: auto" class="form-select" id="multiple-select-field"
+                                data-placeholder="Choose anything" multiple>
+                                <!-- O conteúdo JavaScript para preenchimento será adicionado aqui -->
                             </select>
+
+                            <br><br><br>
+                            <h3 class="text-center">Selecione o Curso desejado</h3> <br>
+                            <!-- Segundo select -->
+                            <select style="height: auto;" class="form-select" id="number-select-field"
+                                data-placeholder="Choose anything" multiple>
+                                <script>
+                                    // Dados para o segundo select
+                                    var numberOptions = ["1", "2", "3"];
+
+                                    // Obtendo a referência do elemento select
+                                    var numberSelectElement = document.getElementById("number-select-field");
+
+                                    // Populando o elemento select com os dados do array
+                                    numberOptions.forEach(function (option) {
+                                        var optionElement = document.createElement("option");
+                                        optionElement.className = "text-center font-weight-bolder";
+                                        optionElement.style.fontSize = "16px";
+                                        optionElement.text = option;
+                                        optionElement.value = option;
+                                        numberSelectElement.add(optionElement);
+                                    });
+                                </script>
+                            </select>
+
+
 
                             <br><br><br>
                             <h3 class="text-center">Selecione os mini cursos</h3> <br>
@@ -369,96 +432,94 @@
                                 </div>
                             </div>
                             <br><br>
+                </div>
+
+                <h3 class="text-center">Método de pagamento</h3> <br>
+                <br><br>
+                <div class="mb-4">
+                    <label>Categoria do Participante</label>
+                    <div class="input-group">
+                        <select name="categoria" class="form-control" id="categoria">
+                            <option value="valor1">Alunos ETEC´s</option>
+                            <option value="valor2">Alunos da Graduação EAD - FIPP</option>
+                            <option value="valor3">Alunos da Graduação Presencial - FIPP</option>
+                            <option value="valor4">BSU - Business School Unoeste</option>
+                            <option value="valor4">Demais Participantes</option>
+                            <option value="valor4">Egressos da FIPP</option>
+                            <option value="valor4">Professores e Funcionários da FIPP</option>
+
+                        </select>
+                    </div>
+                    <hr class="my-4">
+
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked
+                                required>
+                            <label class="form-check-label" for="credit">Cartão de débito</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                            <label class="form-check-label" for="debit">Cartão de crédito</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                            <label class="form-check-label" for="paypal">PayPal</label>
+                        </div>
+                    </div>
+
+                    <div class="row gy-3">
+                        <div class="col-md-6">
+                            <label for="cc-name" class="form-label">Nome do cartão</label>
+                            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                            <small class="text-muted">Nome presente no cartão</small>
+                            <div class="invalid-feedback">
+                                Nome required
+                            </div>
                         </div>
 
-                        <h3 class="text-center">Método de pagamento</h3> <br>
-                        <br><br>
-                        <div class="mb-4">
-                            <label>Categoria do Participante</label>
-                            <div class="input-group">
-                                <select name="categoria" class="form-control" id="categoria">
-                                    <option value="valor1">Alunos ETEC´s</option>
-                                    <option value="valor2">Alunos da Graduação EAD - FIPP</option>
-                                    <option value="valor3">Alunos da Graduação Presencial - FIPP</option>
-                                    <option value="valor4">BSU - Business School Unoeste</option>
-                                    <option value="valor4">Demais Participantes</option>
-                                    <option value="valor4">Egressos da FIPP</option>
-                                    <option value="valor4">Professores e Funcionários da FIPP</option>
-
-                                </select>
+                        <div class="col-md-6">
+                            <label for="cc-number" class="form-label">Número do cartão</label>
+                            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Número required
                             </div>
-                            <hr class="my-4">
+                        </div>
 
-                            <div class="my-3">
-                                <div class="form-check">
-                                    <input id="credit" name="paymentMethod" type="radio" class="form-check-input"
-                                        checked required>
-                                    <label class="form-check-label" for="credit">Cartão de débito</label>
-                                </div>
-                                <div class="form-check">
-                                    <input id="debit" name="paymentMethod" type="radio" class="form-check-input"
-                                        required>
-                                    <label class="form-check-label" for="debit">Cartão de crédito</label>
-                                </div>
-                                <div class="form-check">
-                                    <input id="paypal" name="paymentMethod" type="radio" class="form-check-input"
-                                        required>
-                                    <label class="form-check-label" for="paypal">PayPal</label>
-                                </div>
+                        <div class="col-md-3">
+                            <label for="cc-expiration" class="form-label">Validade</label>
+                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Validade required
                             </div>
+                        </div>
 
-                            <div class="row gy-3">
-                                <div class="col-md-6">
-                                    <label for="cc-name" class="form-label">Nome do cartão</label>
-                                    <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                                    <small class="text-muted">Nome presente no cartão</small>
-                                    <div class="invalid-feedback">
-                                        Nome required
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="cc-number" class="form-label">Número do cartão</label>
-                                    <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                                    <div class="invalid-feedback">
-                                        Número required
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label for="cc-expiration" class="form-label">Validade</label>
-                                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                                    <div class="invalid-feedback">
-                                        Validade required
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label for="cc-cvv" class="form-label">CVV</label>
-                                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                                    <div class="invalid-feedback">
-                                        Security code required
-                                    </div>
-                                </div>
+                        <div class="col-md-3">
+                            <label for="cc-cvv" class="form-label">CVV</label>
+                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Security code required
+                            </div>
+                        </div>
 
 
-                                <div class="col-md-6" style="display: flex;
+                        <div class="col-md-6" style="display: flex;
                                                                         align-items: center;
                                                                         justify-content: space-around;
                                                                         flex-direction: column;
                                                                         align-content: space-between;">
-                                    <label for="valor" class="form-label">Valor total</label>
-                                    <div>
-                                        <label for="valor" class="form-label" style="font-size: 2em;">R$:
-                                        </label>
-                                        <label for="valor" class="form-label" style="font-size: 2em;">55</label>
-                                    </div>
-                                </div>
+                            <label for="valor" class="form-label">Valor total</label>
+                            <div>
+                                <label for="valor" class="form-label" style="font-size: 2em;">R$:
+                                </label>
+                                <label for="valor" class="form-label" style="font-size: 2em;">55</label>
                             </div>
                         </div>
+                    </div>
                 </div>
-                </main>
             </div>
+            </main>
+        </div>
         </div>
         <div class="col-md-12" style="max-width: 50%; align-items: center; align-content: center;">
             <button style="align-items: center; align-content: center;" type="submit"
@@ -550,7 +611,6 @@
     <script src="../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46172202-12">
-        aside
     </script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -564,12 +624,23 @@
     </script>
     <script>
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            ajustarAlturaSelect();
+        });
+    </script>
     <script defer
         src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854"
         integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg=="
         data-cf-beacon='{"rayId":"809d9c00585ea553","version":"2023.8.0","r":1,"token":"1b7cbb72744b40c580f8633c6b62637e","si":100}'
         crossorigin="anonymous"></script>
 
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            ajustarAlturaSelect();
+        });
+    </script>
 </body>
 
 </html>
