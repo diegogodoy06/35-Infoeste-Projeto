@@ -62,7 +62,14 @@
 
 
 <body class="contact-us">
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    
+            document.getElementById('categoria').addEventListener('change', atualizarValor);
+        });
+        
+        
+    </script>
     <div class="container position-sticky z-index-sticky top-0">
         <div class="row">
             <div class="col-12">
@@ -402,7 +409,7 @@
 
                                 <div class="col-md-3">
                                     <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1a" onchange="limitarSelecao('conjunto1', this)">
+                                        <input type="checkbox" class="custom-control-input" id="ck1a" onchange="limitarSelecao('conjunto3', this)">
                                         <label class="custom-control-label" for="ck1a">
                                             <img src="../img/cursos/web.jpg" alt="#" class="img-fluid">
                                         </label>
@@ -411,7 +418,7 @@
 
                                 <div class="col-md-3">
                                     <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1b" onchange="limitarSelecao('conjunto1', this)">
+                                        <input type="checkbox" class="custom-control-input" id="ck1b" onchange="limitarSelecao('conjunto3', this)">
                                         <label class="custom-control-label" for="ck1b">
                                             <img src="../img/cursos/praticas.jpg" alt="#" class="img-fluid">
                                         </label>
@@ -419,7 +426,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1c" onchange="limitarSelecao('conjunto1', this)">
+                                        <input type="checkbox" class="custom-control-input" id="ck1c" onchange="limitarSelecao('conjunto3', this)">
                                         <label class="custom-control-label" for="ck1c">
                                             <img src="../img/cursos/movel.jpg" alt="#" class="img-fluid">
                                         </label>
@@ -427,7 +434,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="custom-control custom-checkbox image-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ck1d" onchange="limitarSelecao('conjunto1', this)">
+                                        <input type="checkbox" class="custom-control-input" id="ck1d" onchange="limitarSelecao('conjunto3', this)">
                                         <label class="custom-control-label" for="ck1d">
                                             <img src="../img/cursos/clean.jpg" alt="#" class="img-fluid">
                                         </label>
@@ -443,13 +450,13 @@
                                 <label>Categoria do Participante</label>
                                 <div class="input-group">
                                     <select name="categoria" class="form-control" id="categoria">
-                                        <option value="valor1">Alunos ETEC´s</option>
-                                        <option value="valor2">Alunos da Graduação EAD - FIPP</option>
-                                        <option value="valor3">Alunos da Graduação Presencial - FIPP</option>
-                                        <option value="valor4">BSU - Business School Unoeste</option>
-                                        <option value="valor4">Demais Participantes</option>
-                                        <option value="valor4">Egressos da FIPP</option>
-                                        <option value="valor4">Professores e Funcionários da FIPP</option>
+                                        <option value="50">Alunos ETEC´s</option>
+                                        <option value="55">Alunos da Graduação EAD - FIPP</option>
+                                        <option value="55">Alunos da Graduação Presencial - FIPP</option>
+                                        <option value="60">BSU - Business School Unoeste</option>
+                                        <option value="40">Demais Participantes</option>
+                                        <option value="50">Egressos da FIPP</option>
+                                        <option value="10">Professores e Funcionários da FIPP</option>
 
                                     </select>
                                 </div>
@@ -518,7 +525,7 @@
                                         <div>
                                             <label for="valor" class="form-label" style="font-size: 2em;">R$:
                                             </label>
-                                            <label for="valor" class="form-label" style="font-size: 2em;">55</label>
+                                            <label for="valor" id="valor-total" class="form-label" style="font-size: 2em;">50</label>
                                         </div>
                                     </div>
                                 </div>

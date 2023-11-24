@@ -215,3 +215,8 @@ function limitarSelecao(conjunto, checkbox) {
         contadores[conjunto]--;
     }
 }
+function atualizarValor() {
+    var select = document.getElementById('categoria');
+    var valorSelecionado = select.options[select.selectedIndex].value;
+    document.getElementById('valor-total').textContent = valorSelecionado;
+}
