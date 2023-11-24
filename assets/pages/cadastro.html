@@ -204,7 +204,7 @@
                                 <div class="col-md-6">
                                     <label>Nome</label>
                                     <div class="input-group mb-4">
-                                        <input id="nome" class="form-control" placeholder="" aria-label="First Name"
+                                        <input id="nome" class="form-control" placeholder="" aria-label="Nome"
                                             type="text">
                                     </div>
                                 </div>
@@ -212,21 +212,21 @@
                                     <label>Sobrenome</label>
                                     <div class="input-group">
                                         <input id="sobrenome" type="text" class="form-control" placeholder=""
-                                            aria-label="Last Name">
+                                            aria-label="Sobrenome">
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-4">
                                 <label>Email</label>
                                 <div class="input-group">
-                                    <input id="email" type="email" class="form-control" placeholder="">
+                                    <input id="email" type="email" class="form-control" placeholder="" aria-label="Email" oninput="debouncedValidaEmailInput();">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>RA</label>
                                     <div class="input-group mb-4">
-                                        <input id="ra" class="form-control" placeholder="" aria-label="RA" type="text">
+                                        <input id="ra" class="form-control" placeholder="" aria-label="RA" type="text" oninput="restrictToNumbers(this);">
                                     </div>
                                 </div>
                                 <div class="col-md-6 ps-2">

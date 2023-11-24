@@ -72,10 +72,10 @@ function consultaCEP() {
                     $('#cidade').val(data.localidade); // Preencher o campo de cidade
                     $('#uf').val(data.uf);
 
-                    if(data.bairro === ""){
+                    if (data.bairro === "") {
                         $('#bairro').val('N/A');
                     }
-                    else{
+                    else {
                         $('#bairro').val(data.bairro);
                     }
                 } else {
@@ -113,7 +113,8 @@ function validaCPFInput() {
         } else {
             clearValidationMessages(); // Limpar mensagens de validação se o CPF for válido
         }
-}}
+    }
+}
 
 function displayValidationMessage(message) {
     // Criar elemento de popup
@@ -134,4 +135,43 @@ function clearValidationMessages() {
     validationMessages.forEach(function (message) {
         message.remove();
     });
+}
+
+function restrictToNumbers(inputElement) {
+
+    // Remover caracteres não numéricos
+    inputElement.value = inputElement.value.replace(/\D/g, '');
+
+    // Limitar o comprimento para no máximo 9 caracteres
+    if (inputElement.value.length > 9) {
+        inputElement.value = inputElement.value.slice(0, 9);
+    }
+}
+
+function debounce(func, delay) {
+    let timeout;
+    return function () {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), delay);
+    };
+}
+
+// Validação de e-mail à medida que o usuário digita (com atraso)
+const debouncedValidaEmailInput = debounce(() => {
+    validaEmailInput();
+}, 1500);
+
+// Validação de e-mail
+function validaEmailInput() {
+    var email = $('#email').val().trim();
+
+    // Verificar se o e-mail é válido
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        displayValidationMessage('E-mail inválido.');
+    } else {
+        clearValidationMessages(); // Limpar mensagens de validação se o e-mail for válido
+    }
 }
