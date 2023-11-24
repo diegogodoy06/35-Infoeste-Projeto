@@ -203,7 +203,7 @@
         <div class="container py-4">
             <div class="row">
                 <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column"
-                    style="margin-top: 9em !important; background-color: lawngreen;">
+                    style="margin-top: 9em !important;">
                     <h3 class="text-center">Inscreva-se</h3> <br>
 
                     <form role="form" id="contact-form" method="post" autocomplete="off" onsubmit="return validaform()">
@@ -369,7 +369,7 @@
 
                             <br><br><br>
                             <h3 class="text-center">Selecione palestras desejadas</h3> <br>
-
+                            
                             <!-- Primeiro select -->
                             <select style="height: auto" class="form-select" id="multiple-select-field"
                                 data-placeholder="Choose anything" multiple>
@@ -377,13 +377,13 @@
                             </select>
 
                             <br><br><br>
-                            <h3 class="text-center">Selecione o Curso desejado</h3> <br>
+                            <h3 class="text-center">Selecione o Evento desejado</h3> <br>
                             <!-- Segundo select -->
                             <select style="height: auto;" class="form-select" id="number-select-field"
                                 data-placeholder="Choose anything" multiple>
                                 <script>
                                     // Dados para o segundo select
-                                    var numberOptions = ["1", "2", "3"];
+                                    var numberOptions = ["teste", "2", "3"];
 
                                     // Obtendo a referência do elemento select
                                     var numberSelectElement = document.getElementById("number-select-field");
@@ -441,11 +441,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <br><br>
+                            <br><br><br>
 
 
                             <h3 class="text-center">Método de pagamento</h3> <br>
-                            <br><br>
+                            
                             <div class="mb-4">
                                 <label>Categoria do Participante</label>
                                 <div class="input-group">
@@ -473,38 +473,25 @@
                                             required>
                                         <label class="form-check-label" for="debit">Cartão de crédito</label>
                                     </div>
-                                    <div class="form-check">
-                                        <input id="paypal" name="paymentMethod" type="radio" class="form-check-input"
-                                            required>
-                                        <label class="form-check-label" for="paypal">PayPal</label>
-                                    </div>
                                 </div>
 
                                 <div class="row gy-3">
                                     <div class="col-md-6">
                                         <label for="cc-name" class="form-label">Nome do cartão</label>
                                         <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                                        <small class="text-muted">Nome presente no cartão</small>
-                                        <div class="invalid-feedback">
-                                            Nome required
-                                        </div>
+                                        <small class="text-muted" style="font-size: 12px;">Nome presente no cartão</small>
                                     </div>
 
                                     <div class="col-md-6">
                                         <label for="cc-number" class="form-label">Número do cartão</label>
-                                        <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                                        <div class="invalid-feedback">
-                                            Número required
-                                        </div>
+                                        <input type="text" class="form-control" id="cc-number" placeholder="" oninput="validaCC();">
+                                        <small class="text-muted" id="cc-validation-message" style="font-size: 12px;"></small>
                                     </div>
 
                                     <div class="col-md-3">
                                         <label for="cc-expiration" class="form-label">Validade</label>
                                         <input type="text" class="form-control" id="cc-expiration" placeholder=""
                                             required>
-                                        <div class="invalid-feedback">
-                                            Validade required
-                                        </div>
                                     </div>
 
                                     <div class="col-md-3">

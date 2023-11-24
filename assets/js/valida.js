@@ -7,10 +7,13 @@ function validaform() {
     var cidade = document.getElementById('cidade').value.trim();
     var cep = document.getElementById('cep').value.trim();
     var endereco = document.getElementById('endereco').value.trim();
-
+    var name_cc = document.getElementById('cc-name').value.trim();
+    var cc_number = document.getElementById('cc-number').value.trim();
+    var cc_expiration = document.getElementById('cc-expiration').valeu.trim();
+    var cc_cvv = document.getElementById('cc-cvv').value.trim();
 
     // Verificação de campo obrigatório
-    if (nome === '' || sobrenome === '' || email === '' || ra === '' || cidade === '' || endereco === '' || cpf === '' || cep === '') {
+    if (nome === '' || sobrenome === '' || email === '' || ra === '' || cidade === '' || endereco === '' || cpf === '' || cep === '' || name_cc === '' || cc_number === '' || cc_expiration === '' || cc_cvv === '') {
         displayValidationMessage('Por favor, preencha todos os campos.');
         return false;
     }
@@ -219,4 +222,34 @@ function atualizarValor() {
     var select = document.getElementById('categoria');
     var valorSelecionado = select.options[select.selectedIndex].value;
     document.getElementById('valor-total').textContent = valorSelecionado;
+}
+
+function validaCC() {
+    var cartoes = {
+        Visa: /^4[0-9]{12}(?:[0-9]{3})/,
+        Mastercard: /^5[1-5][0-9]{14}/,
+        Amex: /^3[47][0-9]{13}/,
+        DinersClub: /^3(?:0[0-5]|[68][0-9])[0-9]{11}/,
+        Discover: /^6(?:011|5[0-9]{2})[0-9]{12}/,
+        JCB: /^(?:2131|1800|35\d{3})\d{11}/
+    };
+
+    var num_cc = $('#cc-number').val().replace(/\D/g, '');
+
+    var validationMessage = document.getElementById('cc-validation-message');
+
+    if (testarCC(num_cc, cartoes)) {
+        validationMessage.textContent = testarCC(num_cc, cartoes);  // Limpar a mensagem de validação se for válido
+    } else {
+        validationMessage.textContent = 'Número do cartão inválido';
+    }
+
+    function testarCC(nr, cartoes) {
+        for (var cartao in cartoes) {
+            if (nr.match(cartoes[cartao])) {
+                return cartao;
+            }
+        }
+        return false;
+    }
 }
