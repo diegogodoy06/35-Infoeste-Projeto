@@ -190,6 +190,7 @@ function validaNumeric(element) {
 
 }
 
+
 // Função para aplicar a máscara de telefone
 function mascaraTelefone(element) {
     Inputmask('(99) 99999-9999').mask(element);
@@ -200,8 +201,8 @@ function mascaraValicc(element) {
     Inputmask('99 9999').mask(element);
 }
 
-function mascaraCC(element) {
-    Inputmask('9999 9999 9999 9999').mask(element);
+function mascaraCC() {
+    Inputmask('9999 9999 9999 9999 9999').mask(element);
 }
 
 function validarNumero() {
@@ -293,7 +294,7 @@ function validaCC() {
 
     if (brand) {
         ccBrandIcon.style.backgroundImage = 'url("' + obterURLDaBandeira(brand) + '")';
-        validationMessage.textContent = '';  // Limpar a mensagem de validação se for válido
+         // Limpar a mensagem de validação se for válido
     } else {
         ccBrandIcon.style.backgroundImage = 'none';  // Limpar a imagem se o número do cartão for inválido
         if(num_cc.length > 15)
@@ -327,4 +328,10 @@ function validaCC() {
         ccBrandIcon.style.backgroundImage = 'none';  // Limpar a imagem se o número do cartão não estiver presente
         validationMessage.textContent = '';  // Limpar a mensagem de validação
     }
+}
+
+
+function apenasNum() {
+    var num_cc = $('#cc-number').text().replace(/\D/g, '');
+    $('#cc-number').text(num_cc);
 }

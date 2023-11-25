@@ -6,7 +6,4 @@ function ajustarAlturaSelect() {
   select.style.height = numeroOpcoes * 25 + 'px'; // Ajuste este valor conforme necessário
 }
 
-// Initialize multiple select on your regular select
-$("multiple-select-field").multipleSelect({
-  filter: true
-});
+

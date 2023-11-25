@@ -34095,6 +34095,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
    transform: translateY(-50%); 
    max-height: 100%; 
    display: inline-block;
-   width: 30px;
-   height: 10px;
+   width: 38px;
+   height: 16px;
 }
