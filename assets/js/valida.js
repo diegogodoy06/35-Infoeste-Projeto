@@ -197,6 +197,11 @@ function mascaraTelefone(element) {
 
 }
 
+function mascaraVal(element) {
+    Inputmask('99/99').mask(element);
+
+}
+
 function mascaraValicc(element) {
     Inputmask('99 9999').mask(element);
 }
@@ -272,7 +277,10 @@ function atualizarValor() {
 
 
 function validaCC() {
+
+    
     var num_cc = $('#cc-number').text().replace(/\D/g, '');
+
 
     if (num_cc.length === 0) {
         limparImagemBandeira();
@@ -335,3 +343,5 @@ function apenasNum() {
     var num_cc = $('#cc-number').text().replace(/\D/g, '');
     $('#cc-number').text(num_cc);
 }
+
+
