@@ -10,7 +10,11 @@
         Inscreva-se Infoeste
     </title>
 
-
+    <!-- Include the default stylesheet -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.rawgit.com/wenzhixin/multiple-select/e14b36de/multiple-select.css">
+    <!-- Include plugin -->
+    <script src="https://cdn.rawgit.com/wenzhixin/multiple-select/e14b36de/multiple-select.js"></script>
     <link rel="canonical" href="https://www.creative-tim.com/product/soft-ui-design-system-pro" />
     <link rel="stylesheet" href="../css/checkbox.css">
     <link rel="stylesheet" href="../css/checkboximg.css">
@@ -59,10 +63,12 @@
     <script src="../js/valida.js"></script>
     <link rel="stylesheet" href="../../assets/css/addjs.css">
 
+
 </head>
 
 
 <body class="contact-us">
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
@@ -245,6 +251,8 @@
                                     <div class="input-group">
                                         <input id="cpf" type="text" class="form-control" placeholder="" aria-label="CPF"
                                             oninput="mascaraCPF(); validaCPFInput();">
+                                        <small class="text-muted" id="cpf-validation-message"
+                                            style="font-size: 12px;"></small>
                                     </div>
                                 </div>
 
@@ -335,9 +343,9 @@
 
                         <br><br><br>
                         <h3 class="text-center">Selecione palestras desejadas</h3> <br>
-
-                        <select style="overflow: hidden;" class="form-select" id="multiple-select-field"
-                            data-placeholder="Choose anything" multiple>
+                        
+                        <select class="form-select" id="multiple-select-field"
+                            data-placeholder="Choose anything"multiple multiselect-search="true" >
 
 
                             <script>
@@ -353,7 +361,7 @@
                                     { label: "Joao é corno", value: "tetste" }
                                 ];
 
-                                // Obtendo a referência do elemento select
+                                // Obtendo a referência do elemento select 
                                 var selectElement = document.getElementById("multiple-select-field");
 
                                 // Populando o elemento select com os dados do array
@@ -366,7 +374,15 @@
                                     selectElement.add(optionElement);
                                 });
                             </script>
-
+                            <script>
+                                $(function () {
+                                    $('#multiple-select-field').change(function () {
+                                        console.log($(this).val());
+                                    }).multipleSelect({
+                                        width: '100%'
+                                    });
+                                });
+                            </script>
 
                             <br><br><br>
                             <h3 class="text-center">Selecione palestras desejadas</h3> <br>
@@ -491,18 +507,18 @@
                                     <div class="col-md-6">
                                         <label for="cc-number" class="form-label">Número do cartão</label>
                                         <div class="cc-input-container ">
-                                            <div class="cc-number-input form-control" id="cc-number" contenteditable="true"
-                                                oninput="validaCC(), mascaraCC(), restrictToNumbers(this);"></div>
+                                            <div class="cc-number-input form-control" id="cc-number"
+                                                contenteditable="true" oninput="validaCC(), mascaraCC(), apenasNum();">
+                                            </div>
                                             <div class="cc-brand-icon" id="cc-brand"></div>
                                         </div>
-                                        <small class="text-muted" id="cc-validation-message"
-                                            style="font-size: 12px;"></small>
                                     </div>
                                 </div>
 
                                 <div class="col-md-3">
                                     <label for="cc-expiration" class="form-label">Validade</label>
-                                    <input type="text" class="form-control" id="cc-expiration" placeholder="" oninput="mascaraValicc();">
+                                    <input type="text" class="form-control" id="cc-expiration" placeholder=""
+                                        oninput="mascaraValicc();">
                                 </div>
 
                                 <div class="col-md-3">
@@ -654,6 +670,16 @@
             ajustarAlturaSelect();
         });
     </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <script src="multiple-select.js"></script>
 </body>
 
 </html>

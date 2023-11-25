@@ -108,10 +108,12 @@ function mascaraCPF() {
 
 function validaCPFInput() {
     var cpf = $('#cpf').val().replace(/\D/g, ''); // Remover caracteres não numéricos
+
     console.log(cpf);
     // Verificar se todos os dígitos do CPF foram inseridos
     if (cpf.length === 11) {
         if (!validaCPF(cpf)) {
+           // validationMessage.textContent = 'Número de CPF inválido';
             displayValidationMessage('CPF inválido.');
         } else {
             clearValidationMessages(); // Limpar mensagens de validação se o CPF for válido
@@ -294,7 +296,8 @@ function validaCC() {
         validationMessage.textContent = '';  // Limpar a mensagem de validação se for válido
     } else {
         ccBrandIcon.style.backgroundImage = 'none';  // Limpar a imagem se o número do cartão for inválido
-        validationMessage.textContent = 'Número do cartão inválido';
+        if(num_cc.length > 15)
+            displayValidationMessage('Número do cartão inválido');
         
     }
 
