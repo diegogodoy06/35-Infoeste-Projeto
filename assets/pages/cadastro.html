@@ -226,9 +226,9 @@
                     style="margin-top: 9em !important;">
                     <h3 class="text-center">Inscreva-se</h3> <br>
 
-                    <form role="form" id="cadastro-form" method="submit" autocomplete="off"
-                        onsubmit="" onsubmit="obterMetodoPagamentoSelecionado()"
-                        onsubmit="obterPalestraSelecionado()" onsubmit="obterEventoSelecionado()">
+                    <form role="form" id="cadastro-form" method="submit" autocomplete="off" onsubmit=""
+                        onsubmit="obterMetodoPagamentoSelecionado()" onsubmit="obterPalestraSelecionado()"
+                        onsubmit="obterEventoSelecionado()">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -454,7 +454,7 @@
                             <div class="col-md-3">
                                 <div class="custom-control custom-checkbox image-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="web"
-                                        onchange="limitarSelecao('conjunto3', this)">
+                                        onchange="limitarSelecao('conjunto', this)">
                                     <label class="custom-control-label" for="web">
                                         <img src="../img/cursos/web.jpg" alt="#" class="img-fluid">
                                     </label>
@@ -464,7 +464,7 @@
                             <div class="col-md-3">
                                 <div class="custom-control custom-checkbox image-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="praticas"
-                                        onchange="limitarSelecao('conjunto3', this)">
+                                        onchange="limitarSelecao('conjunto', this)">
                                     <label class="custom-control-label" for="praticas">
                                         <img src="../img/cursos/praticas.jpg" alt="#" class="img-fluid">
                                     </label>
@@ -473,7 +473,7 @@
                             <div class="col-md-3">
                                 <div class="custom-control custom-checkbox image-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="mobile"
-                                        onchange="limitarSelecao('conjunto3', this)">
+                                        onchange="limitarSelecao('conjunto', this)">
                                     <label class="custom-control-label" for="mobile">
                                         <img src="../img/cursos/movel.jpg" alt="#" class="img-fluid">
                                     </label>
@@ -482,14 +482,33 @@
                             <div class="col-md-3">
                                 <div class="custom-control custom-checkbox image-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="clean"
-                                        onchange="limitarSelecao('conjunto3', this)">
+                                        onchange="limitarSelecao('conjunto', this)">
                                     <label class="custom-control-label" for="clean">
                                         <img src="../img/cursos/clean.jpg" alt="#" class="img-fluid">
                                     </label>
                                 </div>
                             </div>
                         </div>
+                        <script>
+                            var contadoresEvento = {}; // Objeto para armazenar contadores de cada conjunto
 
+                            function limitarSelecao(conjunto, checkbox) {
+                                if (!contadoresEvento[conjunto]) {
+                                    contadoresEvento[conjunto] = 0;
+                                }
+
+                                if (checkbox.checked) {
+                                    if (contadoresEvento[conjunto] >= 2) {
+                                        displayValidationMessage("Você só pode selecionar até 2 opções.");
+                                        checkbox.checked = false;
+                                    } else {
+                                        contadoresEvento[conjunto]++;
+                                    }
+                                } else {
+                                    contadoresEvento[conjunto]--;
+                                }
+                            }
+                        </script>
                         <br><br><br>
 
 

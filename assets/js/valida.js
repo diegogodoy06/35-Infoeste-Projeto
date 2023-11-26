@@ -302,24 +302,8 @@ function validarNumero() {
 }
 
 
-var contadores = {}; // Objeto para armazenar contadores de cada conjunto
 
-function limitarSelecao(conjunto, checkbox) {
-    if (!contadores[conjunto]) {
-        contadores[conjunto] = 0;
-    }
 
-    if (checkbox.checked) {
-        if (contadores[conjunto] >= 2) {
-            displayValidationMessage("Você só pode selecionar até 2 opções.");
-            checkbox.checked = false;
-        } else {
-            contadores[conjunto]++;
-        }
-    } else {
-        contadores[conjunto]--;
-    }
-}
 function atualizarValor() {
     var select = document.getElementById('categoria');
     var valorSelecionado = select.options[select.selectedIndex].value;
