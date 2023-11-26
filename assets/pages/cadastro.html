@@ -292,11 +292,11 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 p-sm-3">
-                                    <label>Telefone Residencial</label>
+                                    <label>Telefone Residencial</label> 
                                     <div class="input-group mb-4">
                                         <input id="telefoneres" class="form-control" placeholder="Opicional"
                                             aria-label="Telefoneres" type="text"
-                                            oninput="validaNumeric(this); mascaraTelefone(this);">
+                                            oninput="validaNumeric(this); mascaraTelefone2(this);">
                                     </div>
                                 </div>
                             </div>
@@ -839,14 +839,6 @@
             // Exemplo: Exibir no console
             console.log('Vetor de informações:', vetorInformacoes);
 
-
-            // Mostrar o modal automaticamente
-            vetorInformacoes.push(dadosFormulario);
-
-            localStorage.setItem('vetorInformacoes', JSON.stringify(vetorInformacoes));
-
-            // Exemplo: Exibir no console
-            console.log('Vetor de informações:', vetorInformacoes);
 
             // Montar o resumo das informações
             const resumoInformacoes = `

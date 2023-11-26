@@ -277,6 +277,9 @@ function mascaraTelefone(element) {
     Inputmask('(99) 99999-9999').mask(element);
 
 }
+function mascaraTelefone2(element) {
+    Inputmask('(99) 99999999').mask(element);
+}
 
 function mascaraVal(element) {
     Inputmask('99/99').mask(element);
