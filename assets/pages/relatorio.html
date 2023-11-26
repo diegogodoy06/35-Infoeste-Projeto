@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-bt" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+    <title>
+        Login Infoeste
+    </title>
+
+
+    <link rel="canonical" href="https://www.creative-tim.com/product/soft-ui-design-system-pro" />
+
+    <meta name="keywords"
+        content="bootstrap, bootstrap 5, bootstrap5, ui kit, design system, responsive design, web design ui, ui design system, soft ui kit, soft ui design system">
+    <meta name="description"
+        content="Most complex and innovative Design System Made by Creative Tim. Check our latest Premium Bootstrap 5 UI Kit.">
+
+    <meta name="twitter:card" content="product">
+    <meta name="twitter:site" content="@creativetim">
+    <meta name="twitter:title" content="Soft UI Design System Pro by Creative Tim">
+    <meta name="twitter:description"
+        content="Most complex and innovative Design System Made by Creative Tim. Check our latest Premium Bootstrap 5 UI Kit.">
+    <meta name="twitter:creator" content="@creativetim">
+    <meta name="twitter:image"
+        content="https://s3.amazonaws.com/creativetim_bucket/products/414/thumb/opt_sds_thumbnail.png">
+
+    <meta property="fb:app_id" content="655968634437471">
+    <meta property="og:title" content="Soft UI Design System Pro by Creative Tim" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://demos.creative-tim.com/soft-ui-design-system-pro/presentation.html" />
+    <meta property="og:image"
+        content="https://s3.amazonaws.com/creativetim_bucket/products/414/thumb/opt_sds_thumbnail.png" />
+    <meta property="og:description"
+        content="Most complex and innovative Design System Made by Creative Tim. Check our latest Premium Bootstrap 5 UI Kit." />
+    <meta property="og:site_name" content="Creative Tim" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+
+    <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+
+    <link id="pagestyle" href="../../assets/css/soft-design-system-pro.min.css?v=1.1.0" rel="stylesheet" />
+
+    <script>
+        // Na inicialização da página
+        document.addEventListener('DOMContentLoaded', function () {
+            // Obter o vetor de informações do armazenamento local
+            const vetorInformacoes = JSON.parse(localStorage.getItem('vetorInformacoes')) || [];
+
+            // Exemplo: Exibir no console
+            console.log('Vetor de informações ao recarregar:', vetorInformacoes);
+        });
+    </script>
+
+</head>
+
+<body class="sign-in-cover">
+
+    <div class="container position-sticky z-index-sticky top-0">
+        <div class="row">
+            <div class="col-12">
+                <nav
+                    class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+                    <div class="container-fluid px-0">
+                        <a class="navbar-brand font-weight-bolder ms-sm-3" href="/index.html" rel="tooltip"
+                            title="Designed and Coded by Creative Tim" data-placement="bottom">
+                            <img src="../img/logos/logo-info.png" style="max-width: 100px;" alt="">
+                        </a>
+                        <a href=""
+                            class="btn btn-sm  bg-gradient-primary  btn-round mb-0 ms-auto d-lg-none d-block">Inscreva-se</a>
+                        <button class="navbar-toggler shadow-none ms-md-2" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon mt-2">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </span>
+                        </button>
+                        <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
+                            <ul class="navbar-nav navbar-nav-hover mx-auto">
+                                <li class="nav-item dropdown dropdown-hover mx-2">
+                                    <a role="button" href="/index.html"
+                                        class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center">
+                                        Home
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown dropdown-hover mx-2">
+                                    <a role="button"
+                                        class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                                        id="dropdownMenuAccount" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Eventos
+                                        <img src="../img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-animation dropdown-lg border-radius-xl p-3 mt-0 mt-lg-3"
+                                        aria-labelledby="dropdownMenuAccount">
+                                        <div class="row d-none d-lg-flex">
+                                            <div class="col-6">
+                                                <div class="py-6 h-100 w-100 d-flex border-radius-lg position-relative dropdown-image"
+                                                    style="background-image:url('../img/curved-images/curved8.jpg')">
+                                                    <div class="mask bg-gradient-primary border-radius-lg"></div>
+                                                    <div
+                                                        class="d-flex justify-content-center align-items-center text-center text-white font-weight-bold w-100 z-index-1 flex-column">
+                                                        <div
+                                                            class="icon icon-shape rounded-circle bg-white shadow text-center">
+                                                            <i class="ni ni-diamond text-primary text-gradient text-lg"
+                                                                aria-hidden="true"></i>
+                                                        </div>
+                                                        <span class="text-lg mt-2">Participe da<br>Infoeste</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 ps-0 d-flex justify-content-center flex-column">
+                                                <ul class="list-group">
+                                                    <li
+                                                        class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
+                                                        <a href="../pages/cursospalestras.html#palestra"
+                                                            class="dropdown-item border-radius-md ps-3 d-flex align-items-center justify-content-between mb-1"
+                                                            id="dropdownSignIn">
+                                                            <span>35º Palestras e Cursos</span>
+                                                        </a>
+                                                    <li
+                                                        class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
+                                                        <a href="../pages/cursospalestras.html#eventos-pro"
+                                                            class="dropdown-item border-radius-md ps-3 d-flex align-items-center justify-content-between mb-1"
+                                                            id="dropdownSignUp">
+                                                            <span>17º Festa Linux</span>
+                                                        </a>
+                                                    </li>
+                                                    <li
+                                                        class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
+                                                        <a href="../pages/cursospalestras.html#eventos-pro"
+                                                            class="dropdown-item border-radius-md ps-3 d-flex align-items-center justify-content-between mb-1"
+                                                            id="dropdownPasswordReset">
+                                                            <span>17º Marat. Programação</span>
+                                                        </a>
+                                                    </li>
+                                                    <li
+                                                        class="nav-item dropdown dropdown-hover dropdown-subitem list-group-item border-0 p-0">
+                                                        <a href="../pages/cursospalestras.html#eventos-pro"
+                                                            class="dropdown-item border-radius-md ps-3 d-flex align-items-center justify-content-between mb-1"
+                                                            id="dropdownError">
+                                                            <span>09º FIPPTEC</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row d-lg-none">
+                                            <div class="col-12 d-flex justify-content-center flex-column">
+                                                <h6
+                                                    class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center px-0">
+                                                    Sign In
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown dropdown-hover mx-2">
+                                    <a role="button" href="../pages/sobre.html"
+                                        class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center">
+                                        Sobre
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav d-lg-block d-none" style="margin-left: 10px;">
+                                <li class="nav-item">
+                                    <a href="../../index.html"
+                                        class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1"
+                                        onclick="smoothToPricing('pricing-soft-ui')">Sair</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br><br>
+    <div class="container py-6 mt-2 card-body text-center">
+        <div class="row">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="--bs-breadcrumb-bg: #013903;">
+                    <li class="breadcrumb-item active card-body text-center"
+                        style="    font-weight: 700;     color: #ffffff; font-size: 20px;" aria-current="page">Cadastros
+                        Realizados</li>
+                </ol>
+            </nav>
+        </div><br><br>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">RA</th>
+                                        <th scope="col">Telefone</th>
+                                        <th scope="col">Cidade</th>
+                                        <th scope="col">Palestras</th>
+                                        <th scope="col">Eventos</th>
+                                        <th scope="col">Cursos</th>
+                                        <th scope="col">Pagamento</th>
+                                        <th scope="col">Valor (R$)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="customtable" id="tabelaDinamica">
+                                    <!-- Dados da tabela dinamica  -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+           
+            var vetorInformacoes = JSON.parse(localStorage.getItem('vetorInformacoes')) || [];
+
+           
+            var camposExibidos = ['nome', 'email', 'ra', 'telefone1', 'cidade', 'palestra', 'evento', 'curso', 'credit', 'valorTotal'];
+
+            
+            function criarLinhasTabela() {
+                var tbody = document.getElementById('tabelaDinamica');
+
+                
+                tbody.innerHTML = '';
+
+               
+                vetorInformacoes.forEach(function (cadastro) {
+                    var row = document.createElement('tr');
+                    camposExibidos.forEach(function (campo) {
+                        var cell = document.createElement('td');
+                        cell.textContent = cadastro[campo] || ''; 
+                        row.appendChild(cell);
+                    });
+                    tbody.appendChild(row);
+                });
+            }
+
+            
+            window.onload = criarLinhasTabela;
+        </script>
+
+
+
+        <footer class="footer py-10" style="padding-top: 6em !important; padding-bottom: 0rem !important;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mb-4 mx-auto text-center">
+                        <a href="https://www.unoeste.br/aunoeste" target="_blank"
+                            class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                            Sobre
+                        </a>
+                        <a href="https://www.unoeste.br/" target="_blank"
+                            class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                            Unoeste
+                        </a>
+                        <a href="https://www.unoeste.br/fipp" target="_blank"
+                            class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                            FIPP
+                        </a>
+                    </div>
+                    <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
+                        <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                            <span class="text-lg fab fa-dribbble"></span>
+                        </a>
+                        <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                            <span class="text-lg fab fa-twitter"></span>
+                        </a>
+                        <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                            <span class="text-lg fab fa-instagram"></span>
+                        </a>
+                        <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                            <span class="text-lg fab fa-pinterest"></span>
+                        </a>
+                        <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                            <span class="text-lg fab fa-github"></span>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="col-8 mx-auto text-center mt-1">
+                            <p class="mb-0 text-secondary">
+                                Copyright ©
+                                <script>document.write(new Date().getFullYear())</script> Soft by Diego Godoy, João
+                                Uzeloto.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        </section>
+
+        <script src="../../assets/js/core/popper.min.js" type="text/javascript"></script>
+        <script src="../../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+
+        <script src="../../assets/js/plugins/typedjs.js"></script>
+
+        <script src="../../assets/js/plugins/parallax.min.js"></script>
+
+        <script src="../../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+
+        <script src="../../assets/js/plugins/glidejs.min.js" type="text/javascript"></script>
+
+        <script src="../../assets/js/plugins/anime.min.js" type="text/javascript"></script>
+
+        <script src="../../assets/js/plugins/chartjs.min.js"></script>
+
+
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+        <script src="../../assets/js/soft-design-system-pro.min.js?v=1.1.0" type="text/javascript"></script>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46172202-12">
+            aside
+        </script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-46172202-12');
+        </script>
+        <script>
+        </script>
+        <script defer
+            src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854"
+            integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg=="
+            data-cf-beacon='{"rayId":"809d77ef78e718f2","version":"2023.8.0","r":1,"token":"1b7cbb72744b40c580f8633c6b62637e","si":100}'
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

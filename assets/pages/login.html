@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<html lang="pt-bt" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
   <meta charset="utf-8" />
@@ -194,7 +194,13 @@
                     <label class="form-check-label" for="rememberMe">Manter conectado</label>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Entrar</button>
+                    <button type="button" onclick="irParaRelatorio()" class="btn bg-gradient-info w-100 mt-4 mb-0">Entrar</button>
+
+                    <script>
+                        function irParaRelatorio() {
+                            window.location.href = "/assets/pages/relatorio.html";
+                        }
+                    </script>
                   </div>
                 </form>
               </div>
