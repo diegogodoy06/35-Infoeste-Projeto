@@ -234,14 +234,14 @@
                                 <div class="col-md-6">
                                     <label>Nome</label>
                                     <div class="input-group mb-4">
-                                        <input id="nome" class="form-control" placeholder="" aria-label="Nome"
+                                        <input id="nome" class="form-control" placeholder="Seu Nome" aria-label="Nome"
                                             type="text">
                                     </div>
                                 </div>
                                 <div class="col-md-6 ps-2">
                                     <label>Sobrenome</label>
                                     <div class="input-group">
-                                        <input id="sobrenome" type="text" class="form-control" placeholder=""
+                                        <input id="sobrenome" type="text" class="form-control" placeholder="Seu Sobrenome"
                                             aria-label="Sobrenome">
                                     </div>
                                 </div>
@@ -249,7 +249,7 @@
                             <div class="mb-4">
                                 <label>Email</label>
                                 <div class="input-group">
-                                    <input id="email" type="email" class="form-control" placeholder=""
+                                    <input id="email" type="email" class="form-control" placeholder="nome@domínio.com"
                                         aria-label="Email" oninput="debouncedValidaEmailInput();">
                                 </div>
                             </div>
@@ -257,14 +257,14 @@
                                 <div class="col-md-6">
                                     <label>RA</label>
                                     <div class="input-group mb-4">
-                                        <input id="ra" class="form-control" placeholder="" aria-label="RA" type="text"
+                                        <input id="ra" class="form-control" placeholder="xxxxxxxxx" aria-label="RA" type="text"
                                             oninput="restrictToNumbers(this);">
                                     </div>
                                 </div>
                                 <div class="col-md-6 ps-2">
                                     <label>CPF</label>
                                     <div class="input-group">
-                                        <input id="cpf" type="text" class="form-control" placeholder="" aria-label="CPF"
+                                        <input id="cpf" type="text" class="form-control" placeholder="xxx.xxx.xxx-xx" aria-label="CPF"
                                             oninput="mascaraCPF(); validaCPFInput();">
                                         <small class="text-muted" id="cpf-validation-message"
                                             style="font-size: 12px;"></small>
@@ -278,7 +278,7 @@
                                 <div class="col-md-4 p-sm-3">
                                     <label>Telefone 1</label>
                                     <div class="input-group">
-                                        <input id="telefone1" type="text" class="form-control" placeholder=""
+                                        <input id="telefone1" type="text" class="form-control" placeholder="Telefone obrigatório"
                                             aria-label="telefone1"
                                             oninput="validaNumeric(this); mascaraTelefone(this);">
                                     </div>
@@ -286,7 +286,7 @@
                                 <div class="col-md-4 p-sm-3">
                                     <label>Telefone 2</label>
                                     <div class="input-group">
-                                        <input id="telefone2" type="text" class="form-control" placeholder=""
+                                        <input id="telefone2" type="text" class="form-control" placeholder="Opicional"
                                             aria-label="telefone2"
                                             oninput="validaNumeric(this); mascaraTelefone(this);">
                                     </div>
@@ -294,7 +294,7 @@
                                 <div class="col-md-4 p-sm-3">
                                     <label>Telefone Residencial</label>
                                     <div class="input-group mb-4">
-                                        <input id="telefoneres" class="form-control" placeholder=""
+                                        <input id="telefoneres" class="form-control" placeholder="Opicional"
                                             aria-label="Telefoneres" type="text"
                                             oninput="validaNumeric(this); mascaraTelefone(this);">
                                     </div>
@@ -307,7 +307,7 @@
                             <div class="col-md-6">
                                 <label>CEP</label>
                                 <div class="input-group mb-4">
-                                    <input id="cep" class="form-control" placeholder="" aria-label="CEP" type="text"
+                                    <input id="cep" class="form-control" placeholder="xxxxx-xxx" aria-label="CEP" type="text"
                                         oninput="consultaCEP()">
                                 </div>
                             </div>
@@ -613,7 +613,27 @@
         </div>
         </div>
         </div>
+
+
+        <!-- //////////////////////////// MODAL //////////////////////////// -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Cadastro Realizado</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    </div>
+                    <div class="modal-body" id="modal-body-resumo">
+                        <!-- O resumo das informações será inserido aqui dinamicamente -->
+                    </div>
+
+                </div>
+            </div>
+
     </section>
+
+
     <!-- //////////////////////////// FOOTER //////////////////////////// --> <br><br><br>
     <footer class="footer py-10" style="padding-top: 4em !important;">
         <div class="container">
@@ -731,7 +751,6 @@
     </script>
 
 
-
     <script>
 
 
@@ -773,14 +792,14 @@
             const campoValor = valorTotalElement.textContent || valorTotalElement.innerText;
 
 
-            // Verifique se todos os campos obrigatórios estão preenchidos
-            if (!campoNome || !campoSobrenome || !campoEmail || !campoRa || !campoCpf || !campoTel1 || !campoCidade || !campoBairro || !campoUf || !campoRua || !campoNumEnd || !campoPalestra || !campoEvento || !campoCurso || !campoCatPert || !campoCc || !campoNomeCc || !campoNumCc || !campoValCc || !campoCvv || !campoValor) {
-                // Pelo menos um campo obrigatório não foi preenchido
-                displayValidationMessage('Por favor, preencha todos os campos obrigatórios.');
-                return; // Impede o envio do formulário
+             // Verifique se todos os campos obrigatórios estão preenchidos
+             if (!campoNome || !campoSobrenome || !campoEmail || !campoRa || !campoCpf || !campoTel1 || !campoCidade || !campoBairro || !campoUf || !campoRua || !campoNumEnd || !campoPalestra || !campoEvento || !campoCurso || !campoCatPert || !campoCc || !campoNomeCc || !campoNumCc || !campoValCc || !campoCvv || !campoValor) {
+                 // Pelo menos um campo obrigatório não foi preenchido
+                 displayValidationMessage('Por favor, preencha todos os campos obrigatórios.');
+                 return; // Impede o envio do formulário
 
-                
-            }
+
+             }
 
             // Restante do código para obter os valores dos campos...
 
@@ -819,6 +838,39 @@
 
             // Exemplo: Exibir no console
             console.log('Vetor de informações:', vetorInformacoes);
+
+
+            // Mostrar o modal automaticamente
+            vetorInformacoes.push(dadosFormulario);
+
+            localStorage.setItem('vetorInformacoes', JSON.stringify(vetorInformacoes));
+
+            // Exemplo: Exibir no console
+            console.log('Vetor de informações:', vetorInformacoes);
+
+            // Montar o resumo das informações
+            const resumoInformacoes = `
+            <strong>Nome:</strong> ${dadosFormulario.nome} ${dadosFormulario.sobrenome}<br>
+            <strong>Email:</strong> ${dadosFormulario.email}<br>
+            <strong>RA:</strong> ${dadosFormulario.ra}<br>
+            <strong>CPF:</strong> ${dadosFormulario.cpf}<br>
+            <br>
+            <strong>Cidade:</strong> ${dadosFormulario.cidade}<br>
+            <strong>Bairro:</strong> ${dadosFormulario.bairro}<br>
+            <strong>Rua:</strong> ${dadosFormulario.endereco}<br>
+            <strong>Nº:</strong> ${dadosFormulario.numero}<br>
+            <br>
+            <strong>Cursos selecionados:</strong> ${dadosFormulario.curso}<br>
+            <strong>Eventos selecionados:</strong> ${dadosFormulario.evento}<br>
+            <strong>Palestras selecionados:</strong> ${dadosFormulario.palestra}<br>
+            `;
+
+            // Inserir o resumo no corpo do modal
+            document.getElementById('modal-body-resumo').innerHTML = resumoInformacoes;
+
+            // Mostrar o modal automaticamente
+            $('#exampleModal').modal('show');
+            
         });
 
     </script>

@@ -58,6 +58,11 @@
         });
     </script>
 
+    <script>document.addEventListener('DOMContentLoaded', function () {
+            atualizarBarraProgresso();
+        });
+    </script>
+
 </head>
 
 <body class="sign-in-cover">
@@ -187,121 +192,180 @@
     <div class="container py-6 mt-2 card-body text-center">
         <div class="row">
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb" style="--bs-breadcrumb-bg: #013903;">
+                <ol class="breadcrumb" style="--bs-breadcrumb-bg: #025104;">
                     <li class="breadcrumb-item active card-body text-center"
                         style="    font-weight: 700;     color: #ffffff; font-size: 20px;" aria-current="page">Cadastros
                         Realizados</li>
                 </ol>
             </nav>
-        </div><br><br>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th scope="col">Nome</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">RA</th>
-                                        <th scope="col">Telefone</th>
-                                        <th scope="col">Cidade</th>
-                                        <th scope="col">Palestras</th>
-                                        <th scope="col">Eventos</th>
-                                        <th scope="col">Cursos</th>
-                                        <th scope="col">Pagamento</th>
-                                        <th scope="col">Valor (R$)</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="customtable" id="tabelaDinamica">
-                                    <!-- Dados da tabela dinamica  -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-
-        <script>
-           
-            var vetorInformacoes = JSON.parse(localStorage.getItem('vetorInformacoes')) || [];
-
-           
-            var camposExibidos = ['nome', 'email', 'ra', 'telefone1', 'cidade', 'palestra', 'evento', 'curso', 'credit', 'valorTotal'];
-
-            
-            function criarLinhasTabela() {
-                var tbody = document.getElementById('tabelaDinamica');
-
-                
-                tbody.innerHTML = '';
-
-               
-                vetorInformacoes.forEach(function (cadastro) {
-                    var row = document.createElement('tr');
-                    camposExibidos.forEach(function (campo) {
-                        var cell = document.createElement('td');
-                        cell.textContent = cadastro[campo] || ''; 
-                        row.appendChild(cell);
-                    });
-                    tbody.appendChild(row);
-                });
-            }
-
-            
-            window.onload = criarLinhasTabela;
-        </script>
-
-
-
-        <footer class="footer py-10" style="padding-top: 6em !important; padding-bottom: 0rem !important;">
+        <section class="py-6 mt-4" style="    padding-top: 2rem !important;">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mb-4 mx-auto text-center">
-                        <a href="https://www.unoeste.br/aunoeste" target="_blank"
-                            class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                            Sobre
-                        </a>
-                        <a href="https://www.unoeste.br/" target="_blank"
-                            class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                            Unoeste
-                        </a>
-                        <a href="https://www.unoeste.br/fipp" target="_blank"
-                            class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                            FIPP
-                        </a>
-                    </div>
-                    <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
-                        <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
-                            <span class="text-lg fab fa-dribbble"></span>
-                        </a>
-                        <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
-                            <span class="text-lg fab fa-twitter"></span>
-                        </a>
-                        <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
-                            <span class="text-lg fab fa-instagram"></span>
-                        </a>
-                        <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
-                            <span class="text-lg fab fa-pinterest"></span>
-                        </a>
-                        <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
-                            <span class="text-lg fab fa-github"></span>
-                        </a>
-                    </div>
-                    <div class="row">
-                        <div class="col-8 mx-auto text-center mt-1">
-                            <p class="mb-0 text-secondary">
-                                Copyright ©
-                                <script>document.write(new Date().getFullYear())</script> Soft by Diego Godoy, João
-                                Uzeloto.
-                            </p>
+                <div class="row justify-space-between py-2">
+                    <label for="" style="font-size: 16px;" id="quantidadeinscritos"></label>
+                    <div class="col-lg-6 mx-auto">
+                        <div class="progress mb-3">
+                            <div class="progress">
+
+                                <div id="progressBar" class="progress-bar bg-primary" role="progressbar"
+                                    style="width: 50%;  background-color: #013903!important" aria-valuenow="0"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+                <style>
+                    #progressBar::after {
+                        content: '-';
+                        /* Adiciona um ponto como conteúdo após a barra de progresso */
+                        font-size: 150em;
+                        /* Ajuste o tamanho do ponto conforme necessário */
+                        margin-left: 1px;
+                        /* Adiciona um pequeno espaço entre a barra e o ponto */
+                    }
+                </style>
+                <script>
+                    var vet = JSON.parse(localStorage.getItem('vetorInformacoes')) || [];
+
+                    // Verifica se os dados estão sendo carregados corretamente
+                    console.log('Dados:', vet);
+
+                    // Função para atualizar a barra de progresso
+                    function atualizarBarraProgresso() {
+                        var progressBar = document.getElementById('progressBar');
+                        if (progressBar) {
+                            var porcentagem = (vet.length / 20) * 100; // Supondo que o máximo seja 10 (pode ajustar conforme necessário)
+
+                            console.log('Porcentagem:', porcentagem);
+
+                            progressBar.style.width = porcentagem + '%';
+                            progressBar.setAttribute('aria-valuenow', porcentagem);
+                            document.getElementById('quantidadeinscritos').textContent = + vet.length + 'de 20 inscritos!!';
+
+                        } else {
+                            console.error('Elemento progressBar não encontrado.');
+                        }
+                    }
+
+                    // Chama a função para atualizar a barra de progresso ao carregar a página
+                    window.onload = function () {
+                        atualizarBarraProgresso();
+                        console.log('Função atualizarBarraProgresso chamada.');
+                    };
+                </script>
+
+
+                <br><br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th scope="col">Nome</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">RA</th>
+                                                <th scope="col">Telefone</th>
+                                                <th scope="col">Cidade</th>
+                                                <th scope="col">Palestras</th>
+                                                <th scope="col">Eventos</th>
+                                                <th scope="col">Cursos</th>
+                                                <th scope="col">Pagamento</th>
+                                                <th scope="col">Valor (R$)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="customtable" id="tabelaDinamica">
+                                            <!-- Dados da tabela dinamica  -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+
+                    var vetorInformacoes = JSON.parse(localStorage.getItem('vetorInformacoes')) || [];
+
+
+                    var camposExibidos = ['nome', 'email', 'ra', 'telefone1', 'cidade', 'palestra', 'evento', 'curso', 'credit', 'valorTotal'];
+
+
+                    function criarLinhasTabela() {
+                        var tbody = document.getElementById('tabelaDinamica');
+
+
+                        tbody.innerHTML = '';
+
+
+                        vetorInformacoes.forEach(function (cadastro) {
+                            var row = document.createElement('tr');
+                            camposExibidos.forEach(function (campo) {
+                                var cell = document.createElement('td');
+                                cell.textContent = cadastro[campo] || '';
+                                row.appendChild(cell);
+                            });
+                            tbody.appendChild(row);
+                        });
+                    }
+
+
+                    window.onload = criarLinhasTabela;
+                </script>
+
+
+
+                <footer class="footer py-10" style="padding-top: 6em !important; padding-bottom: 0rem !important;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 mb-4 mx-auto text-center">
+                                <a href="https://www.unoeste.br/aunoeste" target="_blank"
+                                    class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                                    Sobre
+                                </a>
+                                <a href="https://www.unoeste.br/" target="_blank"
+                                    class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                                    Unoeste
+                                </a>
+                                <a href="https://www.unoeste.br/fipp" target="_blank"
+                                    class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                                    FIPP
+                                </a>
+                            </div>
+                            <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
+                                <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                                    <span class="text-lg fab fa-dribbble"></span>
+                                </a>
+                                <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                                    <span class="text-lg fab fa-twitter"></span>
+                                </a>
+                                <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                                    <span class="text-lg fab fa-instagram"></span>
+                                </a>
+                                <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                                    <span class="text-lg fab fa-pinterest"></span>
+                                </a>
+                                <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
+                                    <span class="text-lg fab fa-github"></span>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <div class="col-8 mx-auto text-center mt-1">
+                                    <p class="mb-0 text-secondary">
+                                        Copyright ©
+                                        <script>document.write(new Date().getFullYear())</script> Soft by Diego
+                                        Godoy, João
+                                        Uzeloto.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
         </section>
 
         <script src="../../assets/js/core/popper.min.js" type="text/javascript"></script>
