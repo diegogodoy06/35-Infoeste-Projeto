@@ -241,8 +241,8 @@
                                 <div class="col-md-6 ps-2">
                                     <label>Sobrenome</label>
                                     <div class="input-group">
-                                        <input id="sobrenome" type="text" class="form-control" placeholder="Seu Sobrenome"
-                                            aria-label="Sobrenome">
+                                        <input id="sobrenome" type="text" class="form-control"
+                                            placeholder="Seu Sobrenome" aria-label="Sobrenome">
                                     </div>
                                 </div>
                             </div>
@@ -257,15 +257,15 @@
                                 <div class="col-md-6">
                                     <label>RA</label>
                                     <div class="input-group mb-4">
-                                        <input id="ra" class="form-control" placeholder="xxxxxxxxx" aria-label="RA" type="text"
-                                            oninput="restrictToNumbers(this);">
+                                        <input id="ra" class="form-control" placeholder="xxxxxxxxx" aria-label="RA"
+                                            type="text" oninput="restrictToNumbers(this);">
                                     </div>
                                 </div>
                                 <div class="col-md-6 ps-2">
                                     <label>CPF</label>
                                     <div class="input-group">
-                                        <input id="cpf" type="text" class="form-control" placeholder="xxx.xxx.xxx-xx" aria-label="CPF"
-                                            oninput="mascaraCPF(); validaCPFInput();">
+                                        <input id="cpf" type="text" class="form-control" placeholder="xxx.xxx.xxx-xx"
+                                            aria-label="CPF" oninput="mascaraCPF(); validaCPFInput();">
                                         <small class="text-muted" id="cpf-validation-message"
                                             style="font-size: 12px;"></small>
                                     </div>
@@ -278,8 +278,8 @@
                                 <div class="col-md-4 p-sm-3">
                                     <label>Telefone 1</label>
                                     <div class="input-group">
-                                        <input id="telefone1" type="text" class="form-control" placeholder="Telefone obrigatório"
-                                            aria-label="telefone1"
+                                        <input id="telefone1" type="text" class="form-control"
+                                            placeholder="Telefone obrigatório" aria-label="telefone1"
                                             oninput="validaNumeric(this); mascaraTelefone(this);">
                                     </div>
                                 </div>
@@ -307,8 +307,8 @@
                             <div class="col-md-6">
                                 <label>CEP</label>
                                 <div class="input-group mb-4">
-                                    <input id="cep" class="form-control" placeholder="xxxxx-xxx" aria-label="CEP" type="text"
-                                        oninput="consultaCEP()">
+                                    <input id="cep" class="form-control" placeholder="xxxxx-xxx" aria-label="CEP"
+                                        type="text" oninput="consultaCEP()">
                                 </div>
                             </div>
                             <div class="col-md-6 ps-2">
@@ -792,14 +792,14 @@
             const campoValor = valorTotalElement.textContent || valorTotalElement.innerText;
 
 
-             // Verifique se todos os campos obrigatórios estão preenchidos
-             if (!campoNome || !campoSobrenome || !campoEmail || !campoRa || !campoCpf || !campoTel1 || !campoCidade || !campoBairro || !campoUf || !campoRua || !campoNumEnd || !campoPalestra || !campoEvento || !campoCurso || !campoCatPert || !campoCc || !campoNomeCc || !campoNumCc || !campoValCc || !campoCvv || !campoValor) {
-                 // Pelo menos um campo obrigatório não foi preenchido
-                 displayValidationMessage('Por favor, preencha todos os campos obrigatórios.');
-                 return; // Impede o envio do formulário
+            // Verifique se todos os campos obrigatórios estão preenchidos
+            if (!campoNome || !campoSobrenome || !campoEmail || !campoRa || !campoCpf || !campoTel1 || !campoCidade || !campoBairro || !campoUf || !campoRua || !campoNumEnd || !campoPalestra || !campoEvento || !campoCurso || !campoCatPert || !campoCc || !campoNomeCc || !campoNumCc || !campoValCc || !campoCvv || !campoValor) {
+                // Pelo menos um campo obrigatório não foi preenchido
+                displayValidationMessage('Por favor, preencha todos os campos obrigatórios.');
+                return; // Impede o envio do formulário
 
 
-             }
+            }
 
             // Restante do código para obter os valores dos campos...
 
@@ -870,8 +870,11 @@
 
             // Mostrar o modal automaticamente
             $('#exampleModal').modal('show');
-            
-        });
+            $('#exampleModal').on('hidden.bs.modal', function () {
+                // Recarregar a página
+                location.reload();
+            });
+            });
 
     </script>
 </body>
