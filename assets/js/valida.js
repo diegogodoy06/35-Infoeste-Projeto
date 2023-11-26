@@ -1,49 +1,52 @@
 
 function validaform() {
-    var nome = document.getElementById('nome').value.trim();
-    var sobrenome = document.getElementById('sobrenome').value.trim();
-    var email = document.getElementById('email').value.trim();
-    var ra = document.getElementById('ra').value.trim();
-    var cidade = document.getElementById('cidade').value.trim();
-    var cep = document.getElementById('cep').value.trim();
-    var endereco = document.getElementById('endereco').value.trim();
-    var name_cc = document.getElementById('cc-name').value.trim();
-    var cc_number = document.getElementById('cc-number').value.trim();
-    var cc_expiration = document.getElementById('cc-expiration').valeu.trim();
-    var cc_cvv = document.getElementById('cc-cvv').value.trim();
 
-    // Verificação de campo obrigatório
-    if (nome === '' || sobrenome === '' || email === '' || ra === '' || cidade === '' || endereco === '' || cpf === '' || cep === '' || name_cc === '' || cc_number === '' || cc_expiration === '' || cc_cvv === '') {
-        displayValidationMessage('Por favor, preencha todos os campos.');
-        return false;
-    }
+        var campos = ['nome', 'sobrenome'];
+    
+        for (var campo of campos) {
+            var valor = document.getElementById(campo).value.trim();
+    
+            if (valor === '') {
+                displayValidationMessage('Por favor, preencha todos os campos.');
+                return false; // Impede o envio do formulário se algum campo estiver vazio
+            }
+        }
+    
+        return true; // Permite o envio do formulário se todos os campos estiverem preenchidos
+    
 
-    // Verificação de formato de e-mail, permitindo qualquer coisa após o ponto
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        displayValidationMessage('Por favor, insira um endereço de e-mail válido.');
-        return false;
-    }
+    // // Verificação de formato de e-mail, permitindo qualquer coisa após o ponto
+    // var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if (!emailRegex.test(email)) {
+    //     displayValidationMessage('Por favor, insira um endereço de e-mail válido.');
+    //     return false;
+    // }
+    // else{
+    //     console.log('email ok');
+    // }
 
-    if (!validaCPF(cpf)) {
-        displayValidationMessage('CPF inválido.');
-        return false;
-    }
+    // if (!validaCPF(cpf)) {
+    //     displayValidationMessage('CPF inválido.');
+    //     return false;
+    // }
+    // else{
+    //     console.log('email ok');
+    // }
 
-    function displayValidationMessage(message) {
-        // Criar elemento de popup
-        var popup = document.createElement('div');
-        popup.className = 'custom-popup';
-        popup.textContent = message;
+    // function displayValidationMessage(message) {
+    //     // Criar elemento de popup
+    //     var popup = document.createElement('div');
+    //     popup.className = 'custom-popup';
+    //     popup.textContent = message;
 
-        // Adicionar popup ao corpo do documento
-        document.body.appendChild(popup);
+    //     // Adicionar popup ao corpo do documento
+    //     document.body.appendChild(popup);
 
-        // Remover popup após 3 segundos (você pode ajustar o tempo conforme necessário)
-        setTimeout(function () {
-            popup.remove();
-        }, 3000);
-    }
+    //     // Remover popup após 3 segundos (você pode ajustar o tempo conforme necessário)
+    //     setTimeout(function () {
+    //         popup.remove();
+    //     }, 3000);
+    // }
 
 
     // Adicione outras condições de validação conforme necessário
@@ -55,11 +58,89 @@ function validaform() {
     // }
 
 
+}
+function obterPalestraSelecionado() {
+    // Obter o elemento select
+    var selectElement = document.getElementById('multiple-select-palastra');
 
-    return true;
+    // Array para armazenar os valores selecionados
+    var selectedValues = [];
+
+    // Iterar sobre as opções do select
+    for (var i = 0; i < selectElement.options.length; i++) {
+        var option = selectElement.options[i];
+
+        // Verificar se a opção está marcada
+        if (option.selected) {
+            // Adicionar o valor ao array de valores selecionados
+            selectedValues.push(option.value);
+        }
+    }
+    console.log('Valores selecionados:', selectedValues);
 }
 
+function obterEventoSelecionado() {
+    // Obter o elemento select
+    var selectElement = document.getElementById('multiple-select-evento');
 
+    // Array para armazenar os valores selecionados
+    var selectedValues = [];
+
+    // Iterar sobre as opções do select
+    for (var i = 0; i < selectElement.options.length; i++) {
+        var option = selectElement.options[i];
+
+        // Verificar se a opção está marcada
+        if (option.selected) {
+            // Adicionar o valor ao array de valores selecionados
+            selectedValues.push(option.value);
+        }
+    }
+    console.log('Valores selecionados:', selectedValues);
+}
+
+// Exibir os valores selecionados no console (você pode fazer o que quiser com esses valores)
+console.log('Valores selecionados:', selectedValues);
+
+function obterMetodoPagamentoSelecionado() {
+    // Obtém os elementos de radio com name "paymentMethod"
+    var opcoesPagamento = document.getElementsByName('paymentMethod');
+
+    // Itera sobre os elementos de radio para encontrar o selecionado
+    for (var i = 0; i < opcoesPagamento.length; i++) {
+        if (opcoesPagamento[i].checked) {
+            var metodoSelecionado = opcoesPagamento[i].id;
+            console.log('Método de pagamento selecionado:', metodoSelecionado);
+            return metodoSelecionado;
+        }
+    }
+
+    // Se nenhum estiver selecionado, você pode lidar com isso aqui
+    console.log('Nenhum método de pagamento selecionado.');
+    return null;
+}
+
+function obterCursosSelecionados() {
+    // Array para armazenar os resultados selecionados
+    var cursosSelecionados = [];
+
+    // Elementos checkbox
+    var checkboxes = document.querySelectorAll('.custom-control-input');
+
+    // Itera sobre os checkboxes
+    checkboxes.forEach(function (checkbox) {
+        if (checkbox.checked) {
+            // Adiciona o valor do checkbox (ou qualquer informação relevante) ao array
+            cursosSelecionados.push(checkbox.id);
+        }
+    });
+
+    // Exibe os resultados no console (você pode fazer o que quiser com esses resultados)
+    console.log('Cursos selecionados:', cursosSelecionados);
+
+    // Retorna os resultados (opcional, dependendo do que você deseja fazer)
+    return cursosSelecionados;
+}
 
 function consultaCEP() {
     var cep = $('#cep').val().replace(/\D/g, ''); // Remover caracteres não numéricos

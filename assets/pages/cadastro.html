@@ -62,6 +62,20 @@
         href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/css/multi-select-tag.css">
     <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
 
+
+    <!-- GRAVA DADOS -->
+    <script src="../banco/cadastro.js"></script>
+    <script>
+        // Na inicialização da página
+        document.addEventListener('DOMContentLoaded', function () {
+            // Obter o vetor de informações do armazenamento local
+            const vetorInformacoes = JSON.parse(localStorage.getItem('vetorInformacoes')) || [];
+
+            // Exemplo: Exibir no console
+            console.log('Vetor de informações ao recarregar:', vetorInformacoes);
+        });
+    </script>
+
 </head>
 
 
@@ -212,7 +226,9 @@
                     style="margin-top: 9em !important;">
                     <h3 class="text-center">Inscreva-se</h3> <br>
 
-                    <form role="form" id="contact-form" method="post" autocomplete="off" onsubmit="return validaform()">
+                    <form role="form" id="cadastro-form" method="submit" autocomplete="off"
+                        onsubmit="" onsubmit="obterMetodoPagamentoSelecionado()"
+                        onsubmit="obterPalestraSelecionado()" onsubmit="obterEventoSelecionado()">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -437,9 +453,9 @@
 
                             <div class="col-md-3">
                                 <div class="custom-control custom-checkbox image-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="ck1a"
+                                    <input type="checkbox" class="custom-control-input" id="web"
                                         onchange="limitarSelecao('conjunto3', this)">
-                                    <label class="custom-control-label" for="ck1a">
+                                    <label class="custom-control-label" for="web">
                                         <img src="../img/cursos/web.jpg" alt="#" class="img-fluid">
                                     </label>
                                 </div>
@@ -447,32 +463,33 @@
 
                             <div class="col-md-3">
                                 <div class="custom-control custom-checkbox image-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="ck1b"
+                                    <input type="checkbox" class="custom-control-input" id="praticas"
                                         onchange="limitarSelecao('conjunto3', this)">
-                                    <label class="custom-control-label" for="ck1b">
+                                    <label class="custom-control-label" for="praticas">
                                         <img src="../img/cursos/praticas.jpg" alt="#" class="img-fluid">
                                     </label>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="custom-control custom-checkbox image-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="ck1c"
+                                    <input type="checkbox" class="custom-control-input" id="mobile"
                                         onchange="limitarSelecao('conjunto3', this)">
-                                    <label class="custom-control-label" for="ck1c">
+                                    <label class="custom-control-label" for="mobile">
                                         <img src="../img/cursos/movel.jpg" alt="#" class="img-fluid">
                                     </label>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="custom-control custom-checkbox image-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="ck1d"
+                                    <input type="checkbox" class="custom-control-input" id="clean"
                                         onchange="limitarSelecao('conjunto3', this)">
-                                    <label class="custom-control-label" for="ck1d">
+                                    <label class="custom-control-label" for="clean">
                                         <img src="../img/cursos/clean.jpg" alt="#" class="img-fluid">
                                     </label>
                                 </div>
                             </div>
                         </div>
+
                         <br><br><br>
 
 
@@ -496,12 +513,12 @@
                             <h5 class="text-center">Informações do Cartão</h5> <br>
                             <div class="my-3">
                                 <div class="form-check">
-                                    <input id="credit" name="paymentMethod" type="radio" class="form-check-input"
-                                        checked required>
+                                    <input id="debit" name="paymentMethod" type="radio" class="form-check-input" checked
+                                        required>
                                     <label class="form-check-label" for="credit">Cartão de débito</label>
                                 </div>
                                 <div class="form-check">
-                                    <input id="debit" name="paymentMethod" type="radio" class="form-check-input"
+                                    <input id="credit" name="paymentMethod" type="radio" class="form-check-input"
                                         required>
                                     <label class="form-check-label" for="debit">Cartão de crédito</label>
                                 </div>
@@ -510,16 +527,17 @@
                             <div class="row gy-3">
                                 <div class="col-md-6">
                                     <label for="cc-name" class="form-label">Nome do cartão</label>
-                                    <input type="text" class="form-control" id="cc-name" placeholder="Nome presente no cartão">
+                                    <input type="text" class="form-control" id="cc-name"
+                                        placeholder="Nome presente no cartão">
                                     <small class="text-muted" style="font-size: 12px;">
-                                        </small><br>
+                                    </small><br>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label for="cc-number" class="form-label">Número do cartão</label>
                                     <div class="cc-input-container ">
                                         <div class="cc-number-input form-control" id="cc-number" contenteditable="true"
-                                         oninput="validaCC(), mascaraCC(), apenasNum();">
+                                            oninput="validaCC(), mascaraCC(), apenasNum();">
                                         </div>
                                         <!-- <input type="text" class="cc-number-input form-control" id="cc-number" placeholder="XXXX XXXX XXXX XXXX"
                maxlength="19" oninput="validaCC(), mascaraCC();"> -->
@@ -530,8 +548,8 @@
                             <div class="row gy-3">
                                 <div class="col-md-3">
                                     <label for="cc-expiration" class="form-label">Validade</label>
-                                    <input maxlength="" type="text" class="form-control" id="cc-expiration" placeholder="XX/XX"
-                                    oninput="mascaraVal(this);">
+                                    <input maxlength="" type="text" class="form-control" id="cc-expiration"
+                                        placeholder="XX/XX" oninput="mascaraVal(this);">
                                 </div>
 
                                 <div class="col-md-3">
@@ -562,7 +580,7 @@
 
 
                         <div class="col-md-12" style="align-items: center; align-content: center;">
-                            <button style="align-items: center; align-content: center;" type="post"
+                            <button style="align-items: center; align-content: center;" type="submit"
                                 class="btn bg-gradient-dark w-100">Enviar</button>
                         </div>
                 </div>
@@ -694,6 +712,95 @@
     </script>
 
 
+
+    <script>
+
+
+        document.getElementById('cadastro-form').addEventListener('submit', function (event) {
+            // Evita o comportamento padrão de enviar o formulário
+            event.preventDefault();
+
+            const vetorInformacoes = JSON.parse(localStorage.getItem('vetorInformacoes')) || [];
+
+            // Obter os valores dos campos do formulário
+            const campoNome = document.getElementById('nome').value;
+            const campoSobrenome = document.getElementById('sobrenome').value;
+            const campoEmail = document.getElementById('email').value;
+            const campoRa = document.getElementById('ra').value;
+            const campoCpf = document.getElementById('cpf').value;
+            const campoTel1 = document.getElementById('telefone1').value;
+            const campoTel2 = document.getElementById('telefone2').value;
+            const campoTelF = document.getElementById('telefoneres').value;
+            const campoCep = document.getElementById('cep').value;
+            const campoCidade = document.getElementById('cidade').value;
+            const campoBairro = document.getElementById('bairro').value;
+            const campoUf = document.getElementById('uf').value;
+            const campoRua = document.getElementById('endereco').value;
+            const campoNumEnd = document.getElementById('numero').value;
+            const campoPalestra = $('#multiple-select-palestra').val();
+            const campoEvento = $('#multiple-select-evento').val();
+            const campoCurso = obterCursosSelecionados();
+            const campoCatPert = document.getElementById('categoria').value;
+            const campoCc = obterMetodoPagamentoSelecionado();
+            const campoNomeCc = document.getElementById('cc-name').value;
+
+            const ccNumberElement = document.getElementById('cc-number');
+            const campoNumCc = ccNumberElement.textContent || ccNumberElement.innerText;
+
+            const campoValCc = document.getElementById('cc-expiration').value;
+            const campoCvv = document.getElementById('cc-cvv').value;
+
+            const valorTotalElement = document.getElementById('valor-total');
+            const campoValor = valorTotalElement.textContent || valorTotalElement.innerText;
+
+
+            // Verifique se todos os campos obrigatórios estão preenchidos
+            if (!campoNome || !campoSobrenome || !campoEmail || !campoRa || !campoCpf || !campoTel1 || !campoCidade || !campoBairro || !campoUf || !campoRua || !campoNumEnd || !campoPalestra || !campoEvento || !campoCurso || !campoCatPert || !campoCc || !campoNomeCc || !campoNumCc || !campoValCc || !campoCvv || !campoValor) {
+                // Pelo menos um campo obrigatório não foi preenchido
+                displayValidationMessage('Por favor, preencha todos os campos obrigatórios.');
+                return; // Impede o envio do formulário
+            }
+
+            // Restante do código para obter os valores dos campos...
+
+            // Criar um objeto com os dados do formulário
+            const dadosFormulario = {
+                nome: campoNome,
+                sobrenome: campoSobrenome,
+                email: campoEmail,
+                ra: campoRa,
+                cpf: campoCpf,
+                telefone1: campoTel1,
+                telefone2: campoTel2,
+                telefoneres: campoTelF,
+                cep: campoCep,
+                cidade: campoCidade,
+                bairro: campoBairro,
+                uf: campoUf,
+                endereco: campoRua,
+                numero: campoNumEnd,
+                palestra: campoPalestra,
+                evento: campoEvento,
+                curso: campoCurso,
+                categoria: campoCatPert,
+                credit: campoCc,
+                ccName: campoNomeCc,
+                ccNumber: campoNumCc,
+                ccExpiration: campoValCc,
+                ccCvv: campoCvv,
+                valorTotal: campoValor,
+            };
+
+            // Adicionar os dados do formulário ao vetor
+            vetorInformacoes.push(dadosFormulario);
+
+            localStorage.setItem('vetorInformacoes', JSON.stringify(vetorInformacoes));
+
+            // Exemplo: Exibir no console
+            console.log('Vetor de informações:', vetorInformacoes);
+        });
+
+    </script>
 </body>
 
 </html>
