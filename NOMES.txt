@@ -1,0 +1,12 @@
+Diego Alexandre Souza Godoy
+João Ricardo Uzeloto Silva
+
+Estava fazendo alguns testes com os arquivos no github, ele abre direto o site:
+https://diegogodoy06.github.io/35-Infoeste-Projeto/
+Pode ser que executando fora, ele não encontre algumas páginas
+
+Fizemos os dois selects do formulário do cadastro dinâmicos, estão em um arquivo JSON: assets\banco\palestra.json e evento.json
+
+Também fizemos uma tabela para exibir os cadastros, é possível excluir cada linha. As informações estão sendo salvas em um vetor local.
+A tabela está em: https://diegogodoy06.github.io/35-Infoeste-Projeto/assets/pages/relatorio.html
+Ou então abrindo em Login > Entrar
