@@ -8,71 +8,26 @@ function validaform() {
     
             if (valor === '') {
                 displayValidationMessage('Por favor, preencha todos os campos.');
-                return false; // Impede o envio do formulário se algum campo estiver vazio
+                return false; 
             }
         }
     
-        return true; // Permite o envio do formulário se todos os campos estiverem preenchidos
+        return true; 
     
-
-    // // Verificação de formato de e-mail, permitindo qualquer coisa após o ponto
-    // var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    // if (!emailRegex.test(email)) {
-    //     displayValidationMessage('Por favor, insira um endereço de e-mail válido.');
-    //     return false;
-    // }
-    // else{
-    //     console.log('email ok');
-    // }
-
-    // if (!validaCPF(cpf)) {
-    //     displayValidationMessage('CPF inválido.');
-    //     return false;
-    // }
-    // else{
-    //     console.log('email ok');
-    // }
-
-    // function displayValidationMessage(message) {
-    //     // Criar elemento de popup
-    //     var popup = document.createElement('div');
-    //     popup.className = 'custom-popup';
-    //     popup.textContent = message;
-
-    //     // Adicionar popup ao corpo do documento
-    //     document.body.appendChild(popup);
-
-    //     // Remover popup após 3 segundos (você pode ajustar o tempo conforme necessário)
-    //     setTimeout(function () {
-    //         popup.remove();
-    //     }, 3000);
-    // }
-
-
-    // Adicione outras condições de validação conforme necessário
-    //function displayValidationMessage(message) {
-    //   var validationMessage = document.createElement('p');
-    //   validationMessage.style.color = 'red';
-    //validationMessage.textContent = message;
-    //    document.body.appendChild(validationMessage);
-    // }
-
-
 }
+
 function obterPalestraSelecionado() {
-    // Obter o elemento select
+
     var selectElement = document.getElementById('multiple-select-palastra');
 
-    // Array para armazenar os valores selecionados
     var selectedValues = [];
 
-    // Iterar sobre as opções do select
     for (var i = 0; i < selectElement.options.length; i++) {
         var option = selectElement.options[i];
 
-        // Verificar se a opção está marcada
+ 
         if (option.selected) {
-            // Adicionar o valor ao array de valores selecionados
+
             selectedValues.push(option.value);
         }
     }
@@ -80,30 +35,29 @@ function obterPalestraSelecionado() {
 }
 
 function obterEventoSelecionado() {
-    // Obter o elemento select
+
     var selectElement = document.getElementById('multiple-select-evento');
 
-    // Array para armazenar os valores selecionados
+
     var selectedValues = [];
 
-    // Iterar sobre as opções do select
+
     for (var i = 0; i < selectElement.options.length; i++) {
         var option = selectElement.options[i];
 
-        // Verificar se a opção está marcada
         if (option.selected) {
-            // Adicionar o valor ao array de valores selecionados
+
             selectedValues.push(option.value);
         }
     }
     console.log('Valores selecionados:', selectedValues);
 }
 
-// Exibir os valores selecionados no console (você pode fazer o que quiser com esses valores)
+
 console.log('Valores selecionados:', selectedValues);
 
 function obterMetodoPagamentoSelecionado() {
-    // Obtém os elementos de radio com name "paymentMethod"
+
     var opcoesPagamento = document.getElementsByName('paymentMethod');
 
     // Itera sobre os elementos de radio para encontrar o selecionado
@@ -121,7 +75,7 @@ function obterMetodoPagamentoSelecionado() {
 }
 
 function obterCursosSelecionados() {
-    // Array para armazenar os resultados selecionados
+
     var cursosSelecionados = [];
 
     // Elementos checkbox
@@ -130,15 +84,15 @@ function obterCursosSelecionados() {
     // Itera sobre os checkboxes
     checkboxes.forEach(function (checkbox) {
         if (checkbox.checked) {
-            // Adiciona o valor do checkbox (ou qualquer informação relevante) ao array
+
             cursosSelecionados.push(checkbox.id);
         }
     });
 
-    // Exibe os resultados no console (você pode fazer o que quiser com esses resultados)
+    // Exibe os resultados no console 
     console.log('Cursos selecionados:', cursosSelecionados);
 
-    // Retorna os resultados (opcional, dependendo do que você deseja fazer)
+    // Retorna os resultados
     return cursosSelecionados;
 }
 
@@ -164,16 +118,16 @@ function consultaCEP() {
                     }
                 } else {
                     displayValidationMessage('Erro ao consultar CEP. Verifique se o CEP é válido.');
-                    $('#cidade').val(''); // Limpar campos em caso de erro
+                    $('#cidade').val(''); 
                 }
             },
             error: function () {
                 displayValidationMessage('Erro ao consultar CEP. Verifique a conexão de internet.');
-                $('#cidade').val(''); // Limpar campos em caso de erro
+                $('#cidade').val(''); 
             }
         });
     } else {
-        $('#cidade').val('');; // Limpar campos se o CEP não tiver 8 dígitos
+        $('#cidade').val('');; 
     }
 
 }
@@ -188,16 +142,16 @@ function mascaraCPF() {
 }
 
 function validaCPFInput() {
-    var cpf = $('#cpf').val().replace(/\D/g, ''); // Remover caracteres não numéricos
+    var cpf = $('#cpf').val().replace(/\D/g, ''); 
 
     console.log(cpf);
     // Verificar se todos os dígitos do CPF foram inseridos
     if (cpf.length === 11) {
         if (!validaCPF(cpf)) {
-           // validationMessage.textContent = 'Número de CPF inválido';
+           
             displayValidationMessage('CPF inválido.');
         } else {
-            clearValidationMessages(); // Limpar mensagens de validação se o CPF for válido
+            clearValidationMessages(); 
         }
     }
 }
@@ -208,14 +162,15 @@ function displayValidationMessage(message) {
     popup.className = 'custom-popup';
     popup.textContent = message;
 
-    // Adicionar popup ao corpo do documento
+
     document.body.appendChild(popup);
 
-    // Remover popup após 3 segundos (você pode ajustar o tempo conforme necessário)
+    // Remover popup após 3 segundos 
     setTimeout(function () {
         popup.remove();
     }, 3000);
 }
+
 function clearValidationMessages() {
     var validationMessages = document.querySelectorAll('p');
     validationMessages.forEach(function (message) {
@@ -248,7 +203,7 @@ function debounce(func, delay) {
     };
 }
 
-// Validação de e-mail à medida que o usuário digita (com atraso)
+// Validação de e-mail
 const debouncedValidaEmailInput = debounce(() => {
     validaEmailInput();
 }, 1500);
@@ -262,7 +217,7 @@ function validaEmailInput() {
     if (!emailRegex.test(email)) {
         displayValidationMessage('E-mail inválido.');
     } else {
-        clearValidationMessages(); // Limpar mensagens de validação se o e-mail for válido
+        clearValidationMessages(); 
     }
 }
 
@@ -271,12 +226,11 @@ function validaNumeric(element) {
 
 }
 
-
-// Função para aplicar a máscara de telefone
 function mascaraTelefone(element) {
     Inputmask('(99) 99999-9999').mask(element);
 
 }
+
 function mascaraTelefone2(element) {
     Inputmask('(99) 99999999').mask(element);
 }
@@ -299,12 +253,10 @@ function validarNumero() {
     var numero = parseInt(numeroInput.value);
 
     if (isNaN(numero) || numero < 0 || numero > 99999) {
-        // Se o valor não for um número válido ou ultrapassar 5 dígitos, redefine para o valor máximo permitido
+        
         numeroInput.value = '';
     }
 }
-
-
 
 
 function atualizarValor() {
@@ -312,36 +264,6 @@ function atualizarValor() {
     var valorSelecionado = select.options[select.selectedIndex].value;
     document.getElementById('valor-total').textContent = valorSelecionado;
 }
-
-/*function validaCC() {
-    var cartoes = {
-        Visa: /^4[0-9]{12}(?:[0-9]{3})/,
-        Mastercard: /^5[1-5][0-9]{14}/,
-        Amex: /^3[47][0-9]{13}/,
-        DinersClub: /^3(?:0[0-5]|[68][0-9])[0-9]{11}/,
-        Discover: /^6(?:011|5[0-9]{2})[0-9]{12}/,
-        JCB: /^(?:2131|1800|35\d{3})\d{11}/
-    };
-
-    var num_cc = $('#cc-number').val().replace(/\D/g, '');
-
-    var validationMessage = document.getElementById('cc-validation-message');
-
-    if (testarCC(num_cc, cartoes)) {
-        validationMessage.textContent = testarCC(num_cc, cartoes);  // Limpar a mensagem de validação se for válido
-    } else {
-        validationMessage.textContent = 'Número do cartão inválido';
-    }
-
-    function testarCC(nr, cartoes) {
-        for (var cartao in cartoes) {
-            if (nr.match(cartoes[cartao])) {
-                return cartao;
-            }
-        }
-        return false;
-    }
-}*/
 
 
 function validaCC() {
@@ -370,9 +292,9 @@ function validaCC() {
 
     if (brand) {
         ccBrandIcon.style.backgroundImage = 'url("' + obterURLDaBandeira(brand) + '")';
-         // Limpar a mensagem de validação se for válido
+        
     } else {
-        ccBrandIcon.style.backgroundImage = 'none';  // Limpar a imagem se o número do cartão for inválido
+        ccBrandIcon.style.backgroundImage = 'none';  
         if(num_cc.length > 15)
             displayValidationMessage('Número do cartão inválido');
         
@@ -388,7 +310,7 @@ function validaCC() {
     }
 
     function obterURLDaBandeira(brand) {
-        // Mapeamento de bandeiras para URLs de imagens online
+       
         var urlBandeiras = {
             Visa: 'https://cdn.4devs.com.br/imagens/cc/logo_visa.jpg',
             Mastercard: 'https://cdn.4devs.com.br/imagens/cc/logo_master.jpg',
@@ -401,8 +323,8 @@ function validaCC() {
     }
 
     function limparImagemBandeira() {
-        ccBrandIcon.style.backgroundImage = 'none';  // Limpar a imagem se o número do cartão não estiver presente
-        validationMessage.textContent = '';  // Limpar a mensagem de validação
+        ccBrandIcon.style.backgroundImage = 'none';  
+        validationMessage.textContent = ''; 
     }
 }
 

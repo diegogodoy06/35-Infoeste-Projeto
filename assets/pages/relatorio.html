@@ -52,8 +52,6 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Obter o vetor de informações do armazenamento local
             const vetorInformacoes = JSON.parse(localStorage.getItem('vetorInformacoes')) || [];
-
-            // Exemplo: Exibir no console
             console.log('Vetor de informações ao recarregar:', vetorInformacoes);
         });
     </script>
@@ -218,24 +216,21 @@
                 <style>
                     #progressBar::after {
                         content: '-';
-                        /* Adiciona um ponto como conteúdo após a barra de progresso */
                         font-size: 150em;
-                        /* Ajuste o tamanho do ponto conforme necessário */
                         margin-left: 1px;
-                        /* Adiciona um pequeno espaço entre a barra e o ponto */
                     }
                 </style>
                 <script>
                     var vet = JSON.parse(localStorage.getItem('vetorInformacoes')) || [];
 
-                    // Verifica se os dados estão sendo carregados corretamente
+                    
                     console.log('Dados:', vet);
 
-                    // Função para atualizar a barra de progresso
+                    
                     function atualizarBarraProgresso() {
                         var progressBar = document.getElementById('progressBar');
                         if (progressBar) {
-                            var porcentagem = (vet.length / 20) * 100; // Supondo que o máximo seja 10 (pode ajustar conforme necessário)
+                            var porcentagem = (vet.length / 20) * 100; 
 
                             console.log('Porcentagem:', porcentagem);
 
@@ -248,7 +243,7 @@
                         }
                     }
 
-                    // Chama a função para atualizar a barra de progresso ao carregar a página
+                    
                     window.onload = function () {
                         atualizarBarraProgresso();
                         console.log('Função atualizarBarraProgresso chamada.');
@@ -275,11 +270,11 @@
                                                 <th scope="col">Cursos</th>
                                                 <th scope="col">Pagamento</th>
                                                 <th scope="col">Valor (R$)</th>
-                                                <th scope="col">Ação</th> <!-- Nova coluna para o botão Excluir -->
+                                                <th scope="col">Ação</th> 
                                             </tr>
                                         </thead>
                                         <tbody class="customtable" id="tabelaDinamica">
-                                            <!-- Dados da tabela dinamica  -->
+                                           
                                         </tbody>
                                     </table>
                                 </div>
