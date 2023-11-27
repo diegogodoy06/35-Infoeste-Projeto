@@ -275,6 +275,7 @@
                                                 <th scope="col">Cursos</th>
                                                 <th scope="col">Pagamento</th>
                                                 <th scope="col">Valor (R$)</th>
+                                                <th scope="col">Ação</th> <!-- Nova coluna para o botão Excluir -->
                                             </tr>
                                         </thead>
                                         <tbody class="customtable" id="tabelaDinamica">
@@ -286,36 +287,50 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <script>
-
+                
                     var vetorInformacoes = JSON.parse(localStorage.getItem('vetorInformacoes')) || [];
-
-
+                
                     var camposExibidos = ['nome', 'email', 'ra', 'telefone1', 'cidade', 'palestra', 'evento', 'curso', 'credit', 'valorTotal'];
-
-
+                
                     function criarLinhasTabela() {
                         var tbody = document.getElementById('tabelaDinamica');
-
-
                         tbody.innerHTML = '';
-
-
-                        vetorInformacoes.forEach(function (cadastro) {
+                
+                        vetorInformacoes.forEach(function (cadastro, index) {
                             var row = document.createElement('tr');
                             camposExibidos.forEach(function (campo) {
                                 var cell = document.createElement('td');
                                 cell.textContent = cadastro[campo] || '';
                                 row.appendChild(cell);
                             });
+                
+                            // Adicionar botão Excluir
+                            var cellExcluir = document.createElement('td');
+                            var btnExcluir = document.createElement('button');
+                            btnExcluir.textContent = 'Excluir';
+                            btnExcluir.className = 'btn-form-excluir bg-gradient-dark';
+                            btnExcluir.onclick = function () {
+                                excluirLinhaTabela(index);
+                            };
+                            cellExcluir.appendChild(btnExcluir);
+                            row.appendChild(cellExcluir);
+                
                             tbody.appendChild(row);
                         });
                     }
-
-
+                
+                    function excluirLinhaTabela(index) {
+                        vetorInformacoes.splice(index, 1);
+                        localStorage.setItem('vetorInformacoes', JSON.stringify(vetorInformacoes));
+                        criarLinhasTabela();
+                    }
+                
                     window.onload = criarLinhasTabela;
+                
                 </script>
+                
 
 
 
